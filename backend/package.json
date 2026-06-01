@@ -1,0 +1,21 @@
+{
+  "name": "campus-marketplace-backend",
+  "version": "1.0.0",
+  "description": "Backend API for campus marketplace",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "export:operations": "node scripts/export_operations.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.1",
+    "xlsx": "^0.18.5"
+  }
+}
