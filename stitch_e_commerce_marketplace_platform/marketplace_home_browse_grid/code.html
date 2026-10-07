@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-tint":"#5148d7","secondary-fixed-dim":"#ffb95f","on-tertiary-fixed":"#00201d","surface-container-high":"#dce9ff","surface":"#f8f9ff","on-secondary":"#ffffff","on-error":"#ffffff","on-primary":"#ffffff","on-secondary-fixed-variant":"#653e00","primary-fixed":"#e3dfff","outline":"#777586","secondary-fixed":"#ffddb8","surface-bright":"#f8f9ff","tertiary-fixed":"#89f5e7","surface-variant":"#d3e4fe","surface-container-low":"#eff4ff","primary-container":"#4338ca","on-primary-container":"#c1beff","on-tertiary-container":"#69d6c9","on-tertiary":"#ffffff","surface-container-highest":"#d3e4fe","on-error-container":"#93000a","tertiary-fixed-dim":"#6bd8cb","surface-container":"#e5eeff","primary-fixed-dim":"#c3c0ff","on-surface-variant":"#464554","on-surface":"#0b1c30","secondary":"#855300","surface-container-lowest":"#ffffff","on-secondary-fixed":"#2a1700","secondary-container":"#fea619","inverse-primary":"#c3c0ff","error":"#ba1a1a","error-container":"#ffdad6","tertiary-container":"#005c54","surface-dim":"#cbdbf5","on-background":"#0b1c30","tertiary":"#00423c","inverse-on-surface":"#eaf1ff","primary":"#2a14b4","background":"#f8f9ff","inverse-surface":"#213145","on-primary-fixed-variant":"#372abf","on-secondary-container":"#684000","on-tertiary-fixed-variant":"#005049","on-primary-fixed":"#100069","outline-variant":"#c7c4d7"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"2.5rem","space-md":"1rem","space-xl":"2rem","gutter-compact":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter":"1.5rem","margin-compact":"1.5rem"},"fontFamily":{"label-lg":["Inter"],"body-md":["Inter"],"label-sm":["Inter"],"display-md":["Plus Jakarta Sans"],"label-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"display-lg":["Plus Jakarta Sans"],"body-sm":["Inter"]},"fontSize":{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"600"}],"display-md":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"800"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 w-full"><div class="h-16 max-w-[1360px] mx-auto px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md shrink-0"><img alt="TradeHub Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X1sxbtvVxKrC_YHKTakqXzoxijwALawB7LHNnb58jNZlFzCORu2fumPHwI7c2OBsBqq_iwa60fuLGGw-F4iHMyav1bhvNmOsu-lOqLf5yVWQlHjMBz9qgrHgqH1FksqZ18p4DGocd3qs586xceHp_3C61SZGJSkY-1_Vf9IWt1Xjcc5Gd3Et_Pjk0e_QaVMQLeYJv6CM4PVcvH2Y860btGFIQreioB66dYED2g0ZVjSsutAUOxP2DsRdE"/><span class="font-headline-md text-headline-md text-primary tracking-tight">TradeHub</span></div><div class="flex-1 max-w-2xl"><div class="flex items-center h-11 bg-surface-container-low rounded-lg px-space-sm gap-space-xs"><div class="relative flex items-center shrink-0"><select class="appearance-none bg-transparent font-label-md text-label-md text-on-surface-variant pr-space-lg pl-space-xs focus:outline-none cursor-pointer"><option>All Categories</option><option>Electronics</option><option>Cameras &amp; Audio</option><option>Furniture</option><option>Collectibles</option><option>Gaming</option><option>Fashion</option></select><span class="material-symbols-outlined absolute right-0 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span></div><div class="h-5 w-[1px] bg-outline-variant shrink-0 mx-space-xs"></div><span class="material-symbols-outlined text-on-surface-variant shrink-0">search</span><input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none px-space-xs" placeholder="Search verified items, brands, or local sellers..." type="text"/><div class="hidden sm:flex items-center shrink-0 px-space-xs py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant">⌘K</div></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg"><a aria-current="page" class="px-space-sm py-2 transition-colors bg-primary-container text-on-primary font-label-lg rounded-lg" data-path="browse-marketplace" href="#">Browse</a><a class="px-space-sm py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="seller-dashboard" href="#">Sell an Item</a><a class="px-space-sm py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="favorites" href="#">Favorites</a><a class="px-space-sm py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="messages" href="#">Inbox</a></nav><div class="flex items-center gap-space-sm shrink-0"><a class="flex items-center gap-1.5 h-10 px-space-md rounded-lg bg-primary font-label-lg text-label-lg text-on-primary hover:bg-primary-container hover:text-on-primary transition-all shadow-[0_1px_3px_0_rgba(15,23,42,0.05)]" data-path="create-listing" href="#"><span class="material-symbols-outlined text-[18px]">add_circle</span><span>Post Listing</span></a><button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary-container"></span></button><div class="relative flex items-center pl-space-xs"><button aria-label="User menu" class="flex items-center gap-space-xs rounded-full p-0.5 focus:outline-none"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBglD9nIKE-rKE6I4aINBJNjPxW_wCOGxXY-arxgqJZZHh6nq609G2ZK6x2jOHghLcih0PGxJ6LnrlBXBw9Ktw-O9JYPtjmssMIrgzpmByzRVoyr0QIOm9JgK9A0IfKiRmB53yWhxTy-E70UapmAa_7RwjDdrTxUzY09Z-gYG6wRVLpRTRr5_h02m8vGrvUX1iMThlC4ywu8k7sQg7aH6XDztDcLXeSrjfysPVOJsSIYs4iMdRhBVTt"/><span class="material-symbols-outlined text-on-surface-variant text-[18px]">keyboard_arrow_down</span></button></div></div></div><div class="h-12 max-w-[1360px] mx-auto px-margin flex items-center justify-between overflow-x-auto gap-space-sm"><div class="flex items-center gap-space-xs shrink-0"><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-high text-primary hover:bg-primary-container hover:text-on-primary transition-colors" data-path="browse-marketplace" href="#">All</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-electronics" href="#">Electronics</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-cameras-audio" href="#">Cameras &amp; Audio</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-furniture" href="#">Furniture</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-collectibles" href="#">Collectibles</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-gaming" href="#">Gaming</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-fashion" href="#">Fashion</a></div><div class="hidden lg:flex items-center gap-space-md shrink-0 font-label-sm text-label-sm text-on-surface-variant"><span class="flex items-center gap-1 text-tertiary-container"><span class="material-symbols-outlined text-[16px]">verified_user</span>Escrow Secured</span><span class="flex items-center gap-1 text-secondary"><span class="material-symbols-outlined text-[16px]">bolt</span>Same-day Handoffs</span></div></div></div></header><main class="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)]"><div class="flex flex-col w-full">
+<!-- Dynamic Notification / Escrow Promo Banner -->
+<section class="w-full bg-gradient-to-r from-primary via-primary-container to-surface-tint text-on-primary px-margin py-3 relative overflow-hidden shadow-sm">
+<div class="max-w-[1360px] mx-auto flex flex-wrap items-center justify-between gap-space-sm text-sm font-label-lg">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center justify-center p-1 rounded-full bg-surface-container-lowest/15 backdrop-blur-sm">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">verified_user</span>
+</span>
+<span class="tracking-tight text-white font-headline-sm text-headline-sm hidden sm:inline">TradeHub Guarantee:</span>
+<span class="text-surface-container-high font-body-md text-body-md">Local &amp; Verified Peer-to-Peer Marketplace — 100% Escrow Buyer Protection on Every Order</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="hidden md:flex items-center gap-2 font-label-sm text-label-sm text-surface-container-high">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+<span>1,420 Escrow Handoffs Today</span>
+</div>
+<a class="inline-flex items-center gap-1 px-3 py-1 rounded bg-surface-container-lowest/20 hover:bg-surface-container-lowest/30 text-white font-label-md text-label-md transition-all" data-path="safety-center" href="#">
+<span>How Escrow Works</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Filter & Discovery Hub (Sticky Controls Layer) -->
+<section class="w-full bg-surface-container-lowest shadow-sm z-30">
+<div class="max-w-[1360px] mx-auto px-margin py- space-y-4 py-space-md">
+<!-- Top Row: Active Location + Query Status + Quick Sorters -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Active Location Pill Button -->
+<div class="inline-flex items-center gap-2 px-space-md py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface cursor-pointer shadow-sm transition-all group">
+<span class="material-symbols-outlined text-primary text-[18px]">near_me</span>
+<span class="font-label-md text-label-md text-on-surface">Within <strong class="font-label-lg text-label-lg text-primary">25 miles</strong> of Seattle, WA</span>
+<span class="material-symbols-outlined text-outline text-[16px] group-hover:text-primary transition-colors">tune</span>
+</div>
+<!-- Active Query Badge -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">
+<span>Query: "Audio &amp; Electronics in Puget Sound"</span>
+<button aria-label="Clear active filter query" class="hover:text-error transition-colors flex items-center">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+<!-- Sorting Selector + View Toggle -->
+<div class="flex items-center gap-space-sm ml-auto">
+<label class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline" for="sort-select">Sort by:</label>
+<div class="relative inline-flex items-center bg-surface-container-low rounded-lg px-space-sm py-1 shadow-sm">
+<select class="appearance-none bg-transparent font-label-md text-label-md text-on-surface pr-6 pl-1 py-1 focus:outline-none cursor-pointer" id="sort-select">
+<option selected="" value="newest">Newly Listed</option>
+<option value="popular">Most Popular</option>
+<option value="price-asc">Price: Low to High</option>
+<option value="price-desc">Price: High to Low</option>
+<option value="distance">Proximity (Nearest First)</option>
+<option value="trusted">Seller Rating (Top Rated)</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+<div class="hidden sm:flex items-center bg-surface-container-low rounded-lg p-0.5">
+<button aria-label="Switch to grid view" class="p-1.5 rounded bg-surface-container-lowest text-primary shadow-xs" title="Grid View">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<button aria-label="Switch to list view" class="p-1.5 rounded text-on-surface-variant hover:text-on-surface" title="List View">
+<span class="material-symbols-outlined text-[18px]">view_list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Row: Filter Chips & Sliders -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-1">
+<!-- Condition Chips -->
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider mr-1">Condition</span>
+<button class="px-space-md py-1 rounded-full font-label-sm text-label-sm bg-primary text-on-primary shadow-sm transition-all hover:bg-primary-container">
+            All Items
+          </button>
+<button class="px-space-md py-1 rounded-full font-label-sm text-label-sm bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors">
+            Brand New (Factory Sealed)
+          </button>
+<button class="px-space-md py-1 rounded-full font-label-sm text-label-sm bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors">
+            Like New
+          </button>
+<button class="px-space-md py-1 rounded-full font-label-sm text-label-sm bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors">
+            Good / Refurbished
+          </button>
+</div>
+<!-- Budget Quick Filter & Toggle Bar -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5 bg-surface-container-low px-3 py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-outline">payments</span>
+<span>Price:</span>
+<span class="font-label-md text-label-md text-on-surface">$50 – $950</span>
+</div>
+<button class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high font-label-sm text-label-sm text-on-surface transition-all">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">verified</span>
+<span>Verified Sellers Only</span>
+</button>
+<button class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+<span>All Filters (6)</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Marketplace Canvas -->
+<div class="max-w-[1360px] w-full mx-auto px-margin py-space-xl">
+<!-- Live Results Context Header -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm mb-space-lg">
+<div>
+<div class="flex items-center gap-2 text-outline font-label-sm text-label-sm uppercase tracking-widest mb-1">
+<span>Active Escrow Protected Exchange</span>
+<span>•</span>
+<span class="text-tertiary-container font-semibold">1,248 Verified Listings</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Curated Local Finds in Seattle &amp; Eastside</h1>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing 8 of 1,248 items</span>
+<div class="w-24 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="bg-primary w-2/12 h-full rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Product Grid: 8 Reusable High Fidelity ProductCards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter" id="marketplace-grid">
+<!-- Card 1: Sony WH-1000XM5 -->
+<article class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden transform hover:-translate-y-1">
+<div class="relative w-full aspect-square bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Close up cinematic shot of matte black Sony WH-1000XM5 wireless noise cancelling headphones resting on a minimalist oak studio desk with warm side lighting and clean deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrSVOYYEPqd9FeosGRpYkHQ7ZZSLnWpIzpV-X0yyzM2Fwf4opKpKor3RvFFuNbkdBnmOyWiTJ2aDB6SRAm7cS4bFPTEI0-twPAguk-r0ak9iM6PSS72azXWhziujW1BmnUhh5YdzuiOKM-u_sjLcBO8jfqP1BvBzODAXCsGpmNM-4s-GVnWsNn5knjn_QaCjV3mdn2Yzdt9edkx2oPJqNUbXzPL0WaVSgekFg_NA0Ke32F-v4P6nf6"/>
+<div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/95 text-on-surface font-semibold shadow-xs backdrop-blur-md">
+              Like New
+            </span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-tertiary-container text-on-tertiary shadow-xs">
+<span class="material-symbols-outlined text-[12px]">security</span> Escrow
+            </span>
+</div>
+<button aria-label="Save to favorites" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-error transition-all shadow-xs z-10">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-tertiary-fixed">fmd_good</span>
+              Capitol Hill (1.8 mi)
+            </span>
+<span>2 hrs ago</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Audio &amp; Studio</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-secondary text-[14px]">star</span>
+<strong>4.95</strong> (64)
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+              Sony WH-1000XM5 Wireless Headphones
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
+              Includes original hard shell carry case, 3.5mm cable, pristine earcups.
+            </p>
+</div>
+<div class="pt-2 flex items-end justify-between">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-md text-primary">$280</span>
+<span class="font-body-sm text-body-sm text-outline line-through">$399 retail</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-container font-medium">Save $119 (30% off)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<img alt="Seller Avatar" class="w-6 h-6 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBglD9nIKE-rKE6I4aINBJNjPxW_wCOGxXY-arxgqJZZHh6nq609G2ZK6x2jOHghLcih0PGxJ6LnrlBXBw9Ktw-O9JYPtjmssMIrgzpmByzRVoyr0QIOm9JgK9A0IfKiRmB53yWhxTy-E70UapmAa_7RwjDdrTxUzY09Z-gYG6wRVLpRTRr5_h02m8vGrvUX1iMThlC4ywu8k7sQg7aH6XDztDcLXeSrjfysPVOJsSIYs4iMdRhBVTt"/>
+<span class="material-symbols-outlined text-tertiary-container text-[16px]" title="ID Verified">verified</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2: Apple iPad Air M2 -->
+<article class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden transform hover:-translate-y-1">
+<div class="relative w-full aspect-square bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Apple iPad Air M2 in Space Gray finish positioned on a light wooden table next to an Apple Pencil and smart folio cover with crisp natural diffused window lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkNKKv6-FCUM9cXNkSuywaV1_l4UQKTZnemscnZeUQiQxLwCyvK28LnifZ99ex4JO8QpNALoZcPy4mWC2EmItO11NpP5SyXjuISu95v-MP7fYZvoOGV-lEq8S0K9i1mo1V-tldp1MVY21ySERj8wie_uRcU12yLvOk1qYhZJ_hR5VDq4jHuZuIGzx6Fobiif_CNpPmhF_P3XMY1_rKBEhXaevgvM4fpPlmWgkl9kvpQXVsoBFjJrua"/>
+<div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/95 text-on-surface font-semibold shadow-xs backdrop-blur-md">
+              Mint Condition
+            </span>
+</div>
+<button aria-label="Save to favorites" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-error transition-all shadow-xs z-10">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-tertiary-fixed">fmd_good</span>
+              Bellevue Downtown (5.1 mi)
+            </span>
+<span>4 hrs ago</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Tablets &amp; Apple</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-secondary text-[14px]">star</span>
+<strong>5.0</strong> (19)
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+              Apple iPad Air M2 128GB Space Gray
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
+              100% battery health, AppleCare+ active until Nov 2025. Box included.
+            </p>
+</div>
+<div class="pt-2 flex items-end justify-between">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-md text-primary">$490</span>
+<span class="font-body-sm text-body-sm text-outline line-through">$599</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Offers open</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary text-[10px] font-bold flex items-center justify-center">JD</div>
+<span class="material-symbols-outlined text-tertiary-container text-[16px]" title="ID Verified">verified</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3: Vintage Herman Miller Aeron Chair -->
+<article class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden transform hover:-translate-y-1">
+<div class="relative w-full aspect-square bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Classic Herman Miller Aeron ergonomic office chair Size B with graphite mesh frame set in an industrial loft setting against exposed brick with clean architectural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa7pEhyS0iB62gPtBnZy_3Z-FdXekBj9cnrACwS3UGs68S49qweHgLxgHtbb_-XL0dNfCN0EgCSSj4_EKfUlHvn_wS3A0pe7gfdNM8Jxj1gldKo7rO4y79ifjNoT6zway8-95G4zqdGlXT3rzSSJxB2ja5diSwz3XCdP_QrO5BHxSXnWoPFHgbQrKtvzNhumi5XijBKUBA9iNlw5zpfoog55ZM0yHCLwKVH-CWH2TOc_rVRja9bLIT"/>
+<div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/95 text-on-surface font-semibold shadow-xs backdrop-blur-md">
+              Fully Restored
+            </span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary-container text-on-secondary-container shadow-xs">
+<span class="material-symbols-outlined text-[12px]">local_shipping</span> Pickup Today
+            </span>
+</div>
+<button aria-label="Save to favorites" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-error transition-all shadow-xs z-10">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-tertiary-fixed">fmd_good</span>
+              Fremont (3.4 mi)
+            </span>
+<span>3 hrs ago</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Ergonomic Furniture</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-secondary text-[14px]">star</span>
+<strong>4.8</strong> (82)
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+              Vintage Herman Miller Aeron Chair Size B
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
+              PostureFit SL support, forward tilt limiter, fully adjustable arms. Smooth gas cylinder.
+            </p>
+</div>
+<div class="pt-2 flex items-end justify-between">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-md text-primary">$620</span>
+<span class="font-body-sm text-body-sm text-outline line-through">$1,295</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-container font-medium">Verified Authentic</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary text-[10px] font-bold flex items-center justify-center">MK</div>
+<span class="material-symbols-outlined text-tertiary-container text-[16px]" title="Top Rated Seller">verified</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 4: Fujifilm X-T30 II -->
+<article class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden transform hover:-translate-y-1">
+<div class="relative w-full aspect-square bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Fujifilm X-T30 II mirrorless camera in retro silver chrome finish with 18-55mm lens attached, styled on dark slate with soft ambient studio reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFbgEWtKBB8cooUJ5hWFKddXo6GPEjvxmoy-3f5OsAmaEnvdpJTjT0uIGy0uqX03uuqiqNGv_NYYOhI_wve_xbtZl7Ev8j2m29grXMhJwA_-ox-az6SzbiruChJbOziECSMM3ZB6goq2sGOVAimUr-Sdb0MHg4ZLDYBUaAyy_UoD2IQ7J_HULI9kukeen2XxjAQNexP0cs2J4r9ilWk47dV_sxMBqMbtD4PHVUb85xvoN7tRGaUybY"/>
+<div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/95 text-on-surface font-semibold shadow-xs backdrop-blur-md">
+              Shutter Count 1.2k
+            </span>
+</div>
+<button aria-label="Save to favorites" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-error transition-all shadow-xs z-10">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-tertiary-fixed">fmd_good</span>
+              Ballard (4.2 mi)
+            </span>
+<span>5 hrs ago</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Cameras &amp; Lenses</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-secondary text-[14px]">star</span>
+<strong>4.9</strong> (31)
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+              Fujifilm X-T30 II Mirrorless w/ 18-55mm
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
+              Includes 2 extra OEM Fuji batteries, 64GB SanDisk Extreme Pro, UV filter.
+            </p>
+</div>
+<div class="pt-2 flex items-end justify-between">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-md text-primary">$850</span>
+<span class="font-body-sm text-body-sm text-outline line-through">$1,199</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-container font-medium">Shutter Verified</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-tertiary-container text-on-tertiary text-[10px] font-bold flex items-center justify-center">TL</div>
+<span class="material-symbols-outlined text-tertiary-container text-[16px]" title="ID Verified">verified</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 5: Bose QuietComfort 45 -->
+<article class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden transform hover:-translate-y-1">
+<div class="relative w-full aspect-square bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Bose QuietComfort 45 headphones in smoke white displayed neatly in an open travel protective case against a clean concrete surface in daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPg9vpzyvPe7ujnqZ3yMfBQ0mJJ56xQ50oSVmhWVle6RAOkvaBw2Najea4SQRWAiyCup-ym08aniTxchvgYZEmgP-HKQul6DY6A8dVBvoXFS_UTbMoPrY1ADYKwK8b8kTOFZbUA_Jz0U1jaLwdFjvpOaIPpbr09Bwr9r8_fP41OEqfGU-ZKbyJUS711tAL-s1F1_11YlQ4UIck4Ca_qymRGxL9o1HcS2iHJLmBGeGFAd3Sl0mc6X3l"/>
+<div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/95 text-on-surface font-semibold shadow-xs backdrop-blur-md">
+              Refurbished (A Grade)
+            </span>
+</div>
+<button aria-label="Save to favorites" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-error transition-all shadow-xs z-10">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-tertiary-fixed">fmd_good</span>
+              Queen Anne (2.1 mi)
+            </span>
+<span>1 hr ago</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Audio</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-secondary text-[14px]">star</span>
+<strong>4.7</strong> (53)
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+              Bose QuietComfort 45 Active NC
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
+              Smoke White. Pristine cushions, USB-C charging cord, verified serial key.
+            </p>
+</div>
+<div class="pt-2 flex items-end justify-between">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-md text-primary">$175</span>
+<span class="font-body-sm text-body-sm text-outline line-through">$329</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-container font-medium">47% off Retail</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-surface-variant text-on-surface text-[10px] font-bold flex items-center justify-center">SM</div>
+<span class="material-symbols-outlined text-tertiary-container text-[16px]">verified</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 6: PlayStation 5 Digital Edition -->
+<article class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden transform hover:-translate-y-1">
+<div class="relative w-full aspect-square bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="PlayStation 5 digital console standing vertically with two DualSense controllers in white and midnight black against dark tech gaming setup background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADNTX3h0QWt_FothHiwlIuKqRi-07nR_MizaphLVSoT5dju1sfax9kPx70rCw4Mqh0KACFjeRCbGfO6Zs64c8VG-K3PmeX1AHq9kG9-U-fcvrPAM4EDSdHYwfoA8Lxl9uBTfAsqg4I7NM5vB5_VXn_ZRMXlvH33wTlNkIzYym5JnrTzhLK9KKrRIHcHyL-4DyOCy6Y5bPdcH73z6aXvAmJ7f3aUrogkjagZSBn0Wcxg6bXjFK5W9yr"/>
+<div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/95 text-on-surface font-semibold shadow-xs backdrop-blur-md">
+              Bundle
+            </span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-primary text-on-primary shadow-xs">
+<span class="material-symbols-outlined text-[12px]">bolt</span> Hot Deal
+            </span>
+</div>
+<button aria-label="Save to favorites" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-error transition-all shadow-xs z-10">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-tertiary-fixed">fmd_good</span>
+              Kirkland (7.8 mi)
+            </span>
+<span>6 hrs ago</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Gaming Consoles</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-secondary text-[14px]">star</span>
+<strong>4.9</strong> (98)
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+              PlayStation 5 Digital + Extra Controller
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
+              825GB SSD, Midnight Black extra DualSense, HDMI 2.1 cable, factory reset.
+            </p>
+</div>
+<div class="pt-2 flex items-end justify-between">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-md text-primary">$340</span>
+<span class="font-body-sm text-body-sm text-outline line-through">$469</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-container font-medium">Tested &amp; Reset</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold flex items-center justify-center">PS</div>
+<span class="material-symbols-outlined text-tertiary-container text-[16px]">verified</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 7: Teenage Engineering OP-1 Synth -->
+<article class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden transform hover:-translate-y-1">
+<div class="relative w-full aspect-square bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Teenage Engineering OP-1 portable synthesizer and sampler showing clean mechanical keybed and color coded rotary knobs with soft overhead studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKJP_jUe6cuIPDL7nQ6czLMgid6TrHBKAF5Cdc9JCdvEcqYci0rAqvsBrmNgm9L0BgVIZQ_tCyExki6cb93BxKZqAI1L7gEr5jsCYvCeAEMxa0j6jm-WcX-RQS-nBc5Il8y6a-ymWHsrFtk9oiT4fux7N2gxSRMvJxGpnsOAYKiXv6s58-fCn5Tf7hMwGovjGenQBgtsheK2wut_xpcW0Ol2M79eXIAZVCartoUMw1XJjAZDf_jy9-"/>
+<div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/95 text-on-surface font-semibold shadow-xs backdrop-blur-md">
+              Rare Collector
+            </span>
+</div>
+<button aria-label="Save to favorites" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-error transition-all shadow-xs z-10">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-tertiary-fixed">fmd_good</span>
+              South Lake Union (0.9 mi)
+            </span>
+<span>8 hrs ago</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Music Production</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-secondary text-[14px]">star</span>
+<strong>5.0</strong> (28)
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+              Teenage Engineering OP-1 Portable Synthesizer
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
+              OLED rev 2.0 with analog antenna, decksaver, and bespoke synth case.
+            </p>
+</div>
+<div class="pt-2 flex items-end justify-between">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-md text-primary">$799</span>
+<span class="font-body-sm text-body-sm text-outline line-through">$1,199</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-container font-medium">Original Packaging</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center">AR</div>
+<span class="material-symbols-outlined text-tertiary-container text-[16px]">verified</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 8: Apple Studio Display 27-inch 5K -->
+<article class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden transform hover:-translate-y-1">
+<div class="relative w-full aspect-square bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Apple Studio Display 27 inch 5K monitor with tilt-adjustable stand sitting on an architect's desk with crisp reflections and soft morning window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOLTVDdMNWxwRBB53XcYudRimQVH-6_qIPZNgvAGI7rfDWyQwJboXhj5l6VeLOpqi6ZquDLcGjXdDp5BHxM7UHkISUlg6WXF7u9qBfEaQTldueF5X7YDcdo30FlHudePX1t6g_vvEFRQ_v4HZUWpm-qS3q565LO2pUEmFHZgwjB4nm567eDb-ZUEqK7RiJNKZl_q0KliuvMqzr5TwBQtu1NvJGQ6rocxn7imE3Kkfps6xGpWMDVeb5"/>
+<div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-lowest/95 text-on-surface font-semibold shadow-xs backdrop-blur-md">
+              Flawless Glass
+            </span>
+</div>
+<button aria-label="Save to favorites" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-error transition-all shadow-xs z-10">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-tertiary-fixed">fmd_good</span>
+              Redmond (11.2 mi)
+            </span>
+<span>9 hrs ago</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Computers &amp; Displays</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-secondary text-[14px]">star</span>
+<strong>4.9</strong> (47)
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+              Apple Studio Display 27" 5K Retina
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
+              Standard glass, tilt-adjustable stand, Thunderbolt cable &amp; power cord included.
+            </p>
+</div>
+<div class="pt-2 flex items-end justify-between">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-md text-primary">$1,150</span>
+<span class="font-body-sm text-body-sm text-outline line-through">$1,599</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Local Handoff</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface text-[10px] font-bold flex items-center justify-center">CH</div>
+<span class="material-symbols-outlined text-tertiary-container text-[16px]">verified</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Load More Section -->
+<div class="mt-space-xl flex flex-col items-center justify-center gap-space-sm text-center">
+<button class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-surface-container-lowest text-primary font-label-lg text-label-lg shadow-sm hover:shadow-md hover:bg-surface-container-low transition-all" id="load-more-btn">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+<span>Load More Listings in Seattle</span>
+</button>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Updating every 30 seconds • New verified listings added in real-time
+      </p>
+</div>
+</div>
+<!-- Trust Reassurance Ribbon -->
+<section class="w-full bg-surface-container-low py-space-xl mt-space-lg shadow-inner">
+<div class="max-w-[1360px] mx-auto px-margin">
+<div class="text-center max-w-2xl mx-auto mb-space-lg">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">Peer-to-Peer Without Risk</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Built to replace shady parking lot meetups</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Every transaction is safeguarded by TradeHub's three-way escrow verification before funds ever move.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Feature 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">lock</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Digital Vault Escrow</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Your payment is held safely in escrow until you inspect the device in person and provide a 4-digit mutual release code.
+          </p>
+<div class="mt-auto pt-2 flex items-center gap-1 text-primary font-label-sm text-label-sm font-semibold">
+<span>Learn about payment protection</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed/40 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[28px]">badge</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Strict Government ID Verification</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Zero anonymous spam profiles. High-value sellers must verify state IDs and link trusted bank payout profiles.
+          </p>
+<div class="mt-auto pt-2 flex items-center gap-1 text-tertiary font-label-sm text-label-sm font-semibold">
+<span>Seller vetting standards</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[28px]">health_and_safety</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Verified Safe Exchange Spots</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            TradeHub designates over 45 monitored bank lobbies and municipal police exchange zones throughout King County.
+          </p>
+<div class="mt-auto pt-2 flex items-center gap-1 text-secondary font-label-sm text-label-sm font-semibold">
+<span>Explore 45 Seattle safe zones</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive script for heart button toggling & UX behavior -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Toggle favorites
+      const favButtons = document.querySelectorAll('button[aria-label="Save to favorites"]');
+      favButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const icon = btn.querySelector('.material-symbols-outlined');
+          const isFavorited = icon.style.fontVariationSettings?.includes("'FILL' 1");
+          if (isFavorited) {
+            icon.style.fontVariationSettings = "'FILL' 0";
+            btn.classList.remove('text-error');
+          } else {
+            icon.style.fontVariationSettings = "'FILL' 1";
+            btn.classList.add('text-error');
+          }
+        });
+      });
+
+      // Quick visual feedback on Load More
+      const loadMoreBtn = document.getElementById('load-more-btn');
+      if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+          const originalText = loadMoreBtn.innerHTML;
+          loadMoreBtn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">progress_activity</span><span>Fetching local listings...</span>';
+          loadMoreBtn.disabled = true;
+          setTimeout(() => {
+            loadMoreBtn.innerHTML = '<span class="material-symbols-outlined text-[20px] text-tertiary-container">check_circle</span><span>All local Seattle listings synced!</span>';
+            loadMoreBtn.classList.add('bg-surface-container');
+          }, 1200);
+        });
+      }
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl"><div class="max-w-[1360px] mx-auto px-margin pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-lg pb-space-xl"><div class="lg:col-span-2 flex flex-col gap-space-sm pr-space-lg"><div class="flex items-center gap-space-xs"><img alt="TradeHub Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X1sxbtvVxKrC_YHKTakqXzoxijwALawB7LHNnb58jNZlFzCORu2fumPHwI7c2OBsBqq_iwa60fuLGGw-F4iHMyav1bhvNmOsu-lOqLf5yVWQlHjMBz9qgrHgqH1FksqZ18p4DGocd3qs586xceHp_3C61SZGJSkY-1_Vf9IWt1Xjcc5Gd3Et_Pjk0e_QaVMQLeYJv6CM4PVcvH2Y860btGFIQreioB66dYED2g0ZVjSsutAUOxP2DsRdE"/><span class="font-headline-sm text-headline-sm text-primary">TradeHub</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">The peer-to-peer commerce standard connecting verified buyers and trusted sellers with zero-friction escrow security and instant resolution.</p><div class="flex items-center gap-space-sm mt-space-xs"><span class="inline-flex items-center gap-1 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-tertiary-container"><span class="material-symbols-outlined text-[14px]">shield</span>Buyer Guarantee</span><span class="inline-flex items-center gap-1 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-secondary"><span class="material-symbols-outlined text-[14px]">lock</span>Escrow Protected</span></div></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Marketplace</h4><nav class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant"><a class="hover:text-primary transition-colors" data-path="browse-marketplace" href="#">All Listings</a><a class="hover:text-primary transition-colors" data-path="category-electronics" href="#">Electronics Hub</a><a class="hover:text-primary transition-colors" data-path="category-gaming" href="#">Gaming Gear</a><a class="hover:text-primary transition-colors" data-path="category-collectibles" href="#">Rare Collectibles</a></nav></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Safety &amp; Trust</h4><nav class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant"><a class="hover:text-primary transition-colors" data-path="safety-center" href="#">Safety Center</a><a class="hover:text-primary transition-colors" data-path="safety-center" href="#">Escrow Protection</a><a class="hover:text-primary transition-colors" data-path="safety-center" href="#">ID Verification</a><a class="hover:text-primary transition-colors" data-path="safety-center" href="#">Dispute Resolution</a></nav></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Seller Tools</h4><nav class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant"><a class="hover:text-primary transition-colors" data-path="seller-dashboard" href="#">Seller Hub</a><a class="hover:text-primary transition-colors" data-path="create-listing" href="#">Listing Studio</a><a class="hover:text-primary transition-colors" data-path="seller-dashboard" href="#">Fee Schedule</a><a class="hover:text-primary transition-colors" data-path="seller-dashboard" href="#">Seller Verification</a></nav></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><p>© 2024 TradeHub Marketplace, Inc. All rights reserved.</p><div class="flex items-center gap-space-md"><a class="hover:text-on-surface transition-colors" href="#">Terms of Service</a><a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" href="#">Security Disclosures</a></div></div></div></footer></body></html>

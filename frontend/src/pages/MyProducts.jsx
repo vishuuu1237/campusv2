@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
-import { formatINR } from '../utils/currency';
+import { formatINR, calculateListingFee } from '../utils/currency';
 
 const MyProducts = () => {
   const { user } = useAuth();
@@ -16,31 +16,36 @@ const MyProducts = () => {
       return;
     }
     fetchMyProducts();
-  }, [user]);
+  }, [user, navigate]);
 
   const fetchMyProducts = async () => {
     try {
+      setLoading(true);
       const response = await axios.get('/api/products');
-      // Filter products to show only the ones listed by the current user
-      const myProducts = response.data.filter(product => product.sellerId === user.id);
+      const myProducts = (response.data || []).filter(
+        (product) => product.sellerId === user.id
+      );
       setProducts(myProducts);
     } catch (error) {
-      console.error('Error fetching products:', error);
+      console.error('Error fetching seller products:', error);
     } finally {
       setLoading(false);
     }
   };
 
   const handleDelete = async (productId) => {
-    if (!window.confirm('Are you sure you want to delete this product? This action cannot be undone.')) {
+    if (
+      !window.confirm(
+        'Are you sure you want to delete this listing? This action cannot be undone.'
+      )
+    ) {
       return;
     }
 
     try {
       await axios.delete(`/api/products/${productId}`);
-      // Remove the product from the list
-      setProducts(products.filter(p => p.id !== productId));
-      alert('Product deleted successfully');
+      setProducts(products.filter((p) => p.id !== productId));
+      alert('Listing deleted successfully.');
     } catch (error) {
       alert(error.response?.data?.error || 'Failed to delete product');
     }
@@ -48,83 +53,179 @@ const MyProducts = () => {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8 text-center">
-        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+      <div className="max-w-[1360px] mx-auto px-4 py-16 text-center">
+        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
+        <p className="mt-4 font-body-md text-on-surface-variant">
+          Loading your active listings...
+        </p>
       </div>
     );
   }
 
+  const totalValue = products.reduce((sum, p) => sum + (Number(p.price) || 0) * (Number(p.stock) || 1), 0);
+  const totalListingCharges = products.reduce((sum, p) => {
+    const fee = p.listingFee !== undefined ? Number(p.listingFee) : calculateListingFee(p.price);
+    return sum + fee;
+  }, 0);
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-800">My Products</h1>
+    <div className="max-w-[1360px] mx-auto px-4 md:px-margin py-space-md pb-space-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-space-sm border-b border-outline-variant/20 mb-space-md">
+        <div>
+          <h1 className="font-headline-lg text-on-surface">My Marketplace Listings</h1>
+          <p className="font-body-sm text-on-surface-variant">
+            Manage your active items, inventory, listing charges, and campus sales.
+          </p>
+        </div>
+
         <Link
           to="/sell"
-          className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-semibold"
+          className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-primary text-on-primary font-label-md font-semibold hover:bg-primary-container transition-all shadow-sm self-start sm:self-auto"
         >
-          + List New Product
+          <span className="material-symbols-outlined text-[18px]">add_circle</span>
+          <span>Post New Listing</span>
         </Link>
       </div>
 
+      {products.length > 0 && (
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-space-lg">
+          <div className="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/20 shadow-xs flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+              <span className="material-symbols-outlined text-[24px]">inventory_2</span>
+            </div>
+            <div>
+              <p className="font-label-sm text-on-surface-variant">Active Listings</p>
+              <p className="font-headline-md text-on-surface font-bold">{products.length}</p>
+            </div>
+          </div>
+
+          <div className="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/20 shadow-xs flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center">
+              <span className="material-symbols-outlined text-[24px]">payments</span>
+            </div>
+            <div>
+              <p className="font-label-sm text-on-surface-variant">Catalog Total Value</p>
+              <p className="font-headline-md text-on-surface font-bold">{formatINR(totalValue)}</p>
+            </div>
+          </div>
+
+          <div className="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/20 shadow-xs flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-secondary/15 text-secondary-container flex items-center justify-center">
+              <span className="material-symbols-outlined text-[24px]">receipt_long</span>
+            </div>
+            <div>
+              <p className="font-label-sm text-on-surface-variant">Total Listing Charges</p>
+              <p className="font-headline-md text-secondary-container font-bold">{formatINR(totalListingCharges)}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {products.length === 0 ? (
-        <div className="bg-white rounded-lg shadow-md p-12 text-center">
-          <p className="text-gray-600 text-lg mb-4">You haven't listed any products yet</p>
+        <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-12 text-center max-w-lg mx-auto shadow-sm my-8">
+          <div className="w-16 h-16 rounded-2xl bg-surface-container-low text-primary flex items-center justify-center mx-auto mb-4">
+            <span className="material-symbols-outlined text-[32px]">storefront</span>
+          </div>
+          <h2 className="font-headline-md text-on-surface mb-2">No active listings</h2>
+          <p className="font-body-md text-on-surface-variant mb-6">
+            You haven't listed any items for sale yet. Turn your unused textbooks and gadgets into cash!
+          </p>
           <Link
             to="/sell"
-            className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition inline-block"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-on-primary rounded-xl font-label-md font-semibold hover:bg-primary-container transition-all shadow-sm"
           >
-            List Your First Product
+            <span className="material-symbols-outlined text-[18px]">add_circle</span>
+            <span>List Your First Product</span>
           </Link>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product) => (
-            <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-              <Link to={`/product/${product.id}`}>
-                <div className="aspect-w-16 aspect-h-9 bg-gray-200">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-48 object-cover"
-                  />
-                </div>
-              </Link>
-              <div className="p-4">
-                <Link to={`/product/${product.id}`}>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2 line-clamp-2 hover:text-primary-600">
-                    {product.name}
-                  </h3>
-                </Link>
-                <p className="text-sm text-gray-600 mb-3 line-clamp-2">{product.description}</p>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-2xl font-bold text-primary-600">
-                    {formatINR(product.price)}
-                  </span>
-                  <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                    {product.category}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
-                  <span>Stock: {product.stock}</span>
-                  <span>Condition: {product.condition}</span>
-                </div>
-                <div className="flex space-x-2">
-                  <Link
-                    to={`/product/${product.id}`}
-                    className="flex-1 text-center px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition"
-                  >
-                    View
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+          {products.map((product) => {
+            const fee = product.listingFee !== undefined ? Number(product.listingFee) : calculateListingFee(product.price);
+            const netPayout = Math.max(0, Number(product.price) - fee);
+
+            return (
+              <div
+                key={product.id}
+                className="bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow"
+              >
+                <div>
+                  <Link to={`/product/${product.id}`} className="block relative aspect-video bg-surface-container-low overflow-hidden group">
+                    <img
+                      src={
+                        product.image ||
+                        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80'
+                      }
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full font-label-sm text-xs bg-surface-container-lowest/90 font-semibold backdrop-blur-md shadow-2xs">
+                      {product.condition || 'Verified'}
+                    </span>
+                    <span className="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full font-label-sm text-xs bg-secondary/90 text-on-secondary font-bold backdrop-blur-md shadow-2xs">
+                      Fee: {formatINR(fee)}
+                    </span>
                   </Link>
-                  <button
-                    onClick={() => handleDelete(product.id)}
-                    className="flex-1 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
-                  >
-                    Delete
-                  </button>
+
+                  <div className="p-4 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="font-label-sm text-outline uppercase text-[10px]">
+                        {product.category || 'General'}
+                      </span>
+                      <span className="font-label-sm text-tertiary-container font-semibold">
+                        Stock: {product.stock || 1}
+                      </span>
+                    </div>
+
+                    <Link to={`/product/${product.id}`} className="font-headline-sm text-on-surface hover:text-primary transition-colors block line-clamp-1">
+                      {product.name}
+                    </Link>
+
+                    <p className="font-body-sm text-on-surface-variant line-clamp-2 text-xs">
+                      {product.description}
+                    </p>
+
+                    {/* Financial Breakdown Card */}
+                    <div className="bg-surface-container-low/60 rounded-xl p-2.5 text-xs space-y-1 mt-2 border border-outline-variant/15">
+                      <div className="flex justify-between text-on-surface-variant">
+                        <span>Listing Charge:</span>
+                        <span className="font-semibold text-secondary-container">{formatINR(fee)}</span>
+                      </div>
+                      <div className="flex justify-between text-on-surface font-semibold pt-1 border-t border-outline-variant/10">
+                        <span>Net Seller Payout:</span>
+                        <span className="text-tertiary">{formatINR(netPayout)}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-4 pt-0 border-t border-outline-variant/20 mt-2 flex items-center justify-between">
+                  <div>
+                    <span className="font-label-sm text-outline text-[11px] block">Price</span>
+                    <span className="font-headline-md text-primary font-bold">
+                      {formatINR(product.price)}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <Link
+                      to={`/product/${product.id}`}
+                      className="px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-xs"
+                    >
+                      View
+                    </Link>
+                    <button
+                      onClick={() => handleDelete(product.id)}
+                      className="p-1.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container/20 transition-colors"
+                      title="Delete listing"
+                    >
+                      <span className="material-symbols-outlined text-[18px]">delete</span>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>
@@ -132,4 +233,3 @@ const MyProducts = () => {
 };
 
 export default MyProducts;
-

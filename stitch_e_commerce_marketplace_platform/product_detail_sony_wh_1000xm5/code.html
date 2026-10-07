@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-tint":"#5148d7","secondary-fixed-dim":"#ffb95f","on-tertiary-fixed":"#00201d","surface-container-high":"#dce9ff","surface":"#f8f9ff","on-secondary":"#ffffff","on-error":"#ffffff","on-primary":"#ffffff","on-secondary-fixed-variant":"#653e00","primary-fixed":"#e3dfff","outline":"#777586","secondary-fixed":"#ffddb8","surface-bright":"#f8f9ff","tertiary-fixed":"#89f5e7","surface-variant":"#d3e4fe","surface-container-low":"#eff4ff","primary-container":"#4338ca","on-primary-container":"#c1beff","on-tertiary-container":"#69d6c9","on-tertiary":"#ffffff","surface-container-highest":"#d3e4fe","on-error-container":"#93000a","tertiary-fixed-dim":"#6bd8cb","surface-container":"#e5eeff","primary-fixed-dim":"#c3c0ff","on-surface-variant":"#464554","on-surface":"#0b1c30","secondary":"#855300","surface-container-lowest":"#ffffff","on-secondary-fixed":"#2a1700","secondary-container":"#fea619","inverse-primary":"#c3c0ff","error":"#ba1a1a","error-container":"#ffdad6","tertiary-container":"#005c54","surface-dim":"#cbdbf5","on-background":"#0b1c30","tertiary":"#00423c","inverse-on-surface":"#eaf1ff","primary":"#2a14b4","background":"#f8f9ff","inverse-surface":"#213145","on-primary-fixed-variant":"#372abf","on-secondary-container":"#684000","on-tertiary-fixed-variant":"#005049","on-primary-fixed":"#100069","outline-variant":"#c7c4d7"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"2.5rem","space-md":"1rem","space-xl":"2rem","gutter-compact":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter":"1.5rem","margin-compact":"1.5rem"},"fontFamily":{"label-lg":["Inter"],"body-md":["Inter"],"label-sm":["Inter"],"display-md":["Plus Jakarta Sans"],"label-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"display-lg":["Plus Jakarta Sans"],"body-sm":["Inter"]},"fontSize":{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"600"}],"display-md":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"800"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 w-full"><div class="h-16 max-w-[1360px] mx-auto px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md shrink-0"><img alt="TradeHub Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X1sxbtvVxKrC_YHKTakqXzoxijwALawB7LHNnb58jNZlFzCORu2fumPHwI7c2OBsBqq_iwa60fuLGGw-F4iHMyav1bhvNmOsu-lOqLf5yVWQlHjMBz9qgrHgqH1FksqZ18p4DGocd3qs586xceHp_3C61SZGJSkY-1_Vf9IWt1Xjcc5Gd3Et_Pjk0e_QaVMQLeYJv6CM4PVcvH2Y860btGFIQreioB66dYED2g0ZVjSsutAUOxP2DsRdE"/><span class="font-headline-md text-headline-md text-primary tracking-tight">TradeHub</span></div><div class="flex-1 max-w-2xl"><div class="flex items-center h-11 bg-surface-container-low rounded-lg px-space-sm gap-space-xs"><div class="relative flex items-center shrink-0"><select class="appearance-none bg-transparent font-label-md text-label-md text-on-surface-variant pr-space-lg pl-space-xs focus:outline-none cursor-pointer"><option>All Categories</option><option>Electronics</option><option>Cameras &amp; Audio</option><option>Furniture</option><option>Collectibles</option><option>Gaming</option><option>Fashion</option></select><span class="material-symbols-outlined absolute right-0 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span></div><div class="h-5 w-[1px] bg-outline-variant shrink-0 mx-space-xs"></div><span class="material-symbols-outlined text-on-surface-variant shrink-0">search</span><input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none px-space-xs" placeholder="Search verified items, brands, or local sellers..." type="text"/><div class="hidden sm:flex items-center shrink-0 px-space-xs py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant">⌘K</div></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg"><a class="px-space-sm py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="browse-marketplace" href="#">Browse</a><a class="px-space-sm py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="seller-dashboard" href="#">Sell an Item</a><a class="px-space-sm py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="favorites" href="#">Favorites</a><a class="px-space-sm py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="messages" href="#">Inbox</a></nav><div class="flex items-center gap-space-sm shrink-0"><a class="flex items-center gap-1.5 h-10 px-space-md rounded-lg bg-primary font-label-lg text-label-lg text-on-primary hover:bg-primary-container hover:text-on-primary transition-all shadow-[0_1px_3px_0_rgba(15,23,42,0.05)]" data-path="create-listing" href="#"><span class="material-symbols-outlined text-[18px]">add_circle</span><span>Post Listing</span></a><button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary-container"></span></button><div class="relative flex items-center pl-space-xs"><button aria-label="User menu" class="flex items-center gap-space-xs rounded-full p-0.5 focus:outline-none"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBglD9nIKE-rKE6I4aINBJNjPxW_wCOGxXY-arxgqJZZHh6nq609G2ZK6x2jOHghLcih0PGxJ6LnrlBXBw9Ktw-O9JYPtjmssMIrgzpmByzRVoyr0QIOm9JgK9A0IfKiRmB53yWhxTy-E70UapmAa_7RwjDdrTxUzY09Z-gYG6wRVLpRTRr5_h02m8vGrvUX1iMThlC4ywu8k7sQg7aH6XDztDcLXeSrjfysPVOJsSIYs4iMdRhBVTt"/><span class="material-symbols-outlined text-on-surface-variant text-[18px]">keyboard_arrow_down</span></button></div></div></div><div class="h-12 max-w-[1360px] mx-auto px-margin flex items-center justify-between overflow-x-auto gap-space-sm"><div class="flex items-center gap-space-xs shrink-0"><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-high text-primary hover:bg-primary-container hover:text-on-primary transition-colors" data-path="browse-marketplace" href="#">All</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-electronics" href="#">Electronics</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-cameras-audio" href="#">Cameras &amp; Audio</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-furniture" href="#">Furniture</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-collectibles" href="#">Collectibles</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-gaming" href="#">Gaming</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-fashion" href="#">Fashion</a></div><div class="hidden lg:flex items-center gap-space-md shrink-0 font-label-sm text-label-sm text-on-surface-variant"><span class="flex items-center gap-1 text-tertiary-container"><span class="material-symbols-outlined text-[16px]">verified_user</span>Escrow Secured</span><span class="flex items-center gap-1 text-secondary"><span class="material-symbols-outlined text-[16px]">bolt</span>Same-day Handoffs</span></div></div></div></header><main class="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)]"><div class="flex flex-col w-full">
+<!-- Breadcrumb Navigation Bar -->
+<nav aria-label="Breadcrumb" class="w-full bg-surface-container-low/60 py-space-sm">
+<div class="max-w-[1360px] mx-auto px-margin flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">home</span>
+<span>Home</span>
+</a>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Electronics</a>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Audio</a>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="text-on-surface font-semibold truncate max-w-[280px] sm:max-w-md">Sony WH-1000XM5 Noise-Canceling Headphones</span>
+</div>
+</nav>
+<!-- Main Marketplace Canvas: Asymmetric 7-Col / 5-Col Desk Grid -->
+<section class="max-w-[1360px] mx-auto px-margin py-space-lg w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT COLUMN: Media Gallery & Trust Verification (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md min-w-0">
+<!-- Master Display Canvas -->
+<div class="relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm overflow-hidden group">
+<!-- Live Status Overlays -->
+<div class="absolute top-space-md left-space-md z-10 flex flex-wrap gap-space-xs items-center">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-tertiary-container text-on-tertiary font-label-sm text-label-sm shadow-sm">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Authentic Verified</span>
+</span>
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-highest/90 backdrop-blur-md text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span>
+<span id="gallery-counter">1 of 5 Photos</span>
+</span>
+</div>
+<!-- Quick Action: Image Fullscreen Trigger -->
+<button aria-label="Expand image" class="absolute top-space-md right-space-md z-10 w-9 h-9 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-on-surface hover:bg-surface-container hover:text-primary flex items-center justify-center transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+<!-- Main High-Res Image Container with Zoom Impression -->
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container-low flex items-center justify-center cursor-crosshair">
+<img class="w-full h-full object-cover transition-all duration-300 transform group-hover:scale-105" data-alt="Editorial studio macro shot of silver Sony WH-1000XM5 wireless noise-cancelling headphones resting gracefully on a sculpted matte warm-grey podium. High-end product commercial photography with soft indigo rim highlights, subtle directional daylight, ultra sharp textures of synthetic leather earcups and smooth satin headband, premium commerce aesthetic." id="active-showcase-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD10L9ZqmqbrZQNAVflhPQKp8HHGJsVaNFBdxEATFhm3hgm3rQWTbwjc7D7ge0ECIir8llpYCyprLPSV-Z0ELcFmdzNPmIw1QMBlpxXA3V8wcNtfPfeQoBMbipTeNtF5SG0mLRQyedQN-Hrtk7J6-BprNUd9SEddSukQovxLvNvpizyZbX9cZMQG-M3XHkBdzHG8DxeWSK5_11t8yf_L8Je1TpR7QskbLH96YXZfHP1MjaOBzWIwVag"/>
+</div>
+<!-- Verified Authentic Inspection Micro-Banner -->
+<div class="mt-space-md bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5">
+<span>TradeHub Authenticity Guarantee</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm uppercase tracking-wider">Passed</span>
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+                  Hardware diagnostic &amp; serial #4189012 physical clearance completed Oct 24, 2024.
+                </p>
+</div>
+</div>
+<a class="font-label-sm text-label-sm text-primary hover:underline shrink-0 flex items-center gap-0.5" href="#">
+<span>View Report</span>
+<span class="material-symbols-outlined text-[14px]">north_east</span>
+</a>
+</div>
+</div>
+<!-- Horizontal Alternate Angle Thumbnails -->
+<div class="grid grid-cols-5 gap-space-sm w-full">
+<button class="thumbnail-selector active relative aspect-square rounded-lg overflow-hidden bg-surface-container-lowest p-1 shadow-sm transition-all focus:outline-none ring-2 ring-primary" onclick="switchPhoto(0, this)">
+<img class="w-full h-full object-cover rounded" data-alt="Sony WH-1000XM5 headphones hero three-quarter front view in sleek silver finish on clean studio slate backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQLuI00CbgD4dSsV4c-KctjxB55h4rKdb60HmbYkwE_v-Qz2cydA_B8qm5MpnsdDNTniJjWiqOCPuok663Pg1-zcPcg5gh2D2xM1fjAg82LaKJKe2fqZiT2eRx2G7rHC1cx7Xa78qGqeOqkagko5bJUFDLVMn3_ougo-KfoOf8bl6iF_pVKyxXFOVOT4m-R2htzWiPlOQ_89bCGqjBQmgUCHCRVrNQ_l_B7sJSZV9TYqofkLXqnXpC"/>
+<span class="absolute inset-0 bg-primary/10 pointer-events-none"></span>
+</button>
+<button class="thumbnail-selector relative aspect-square rounded-lg overflow-hidden bg-surface-container-lowest p-1 shadow-sm transition-all focus:outline-none hover:bg-surface-container-high opacity-80 hover:opacity-100" onclick="switchPhoto(1, this)">
+<img class="w-full h-full object-cover rounded" data-alt="Side profile closeup view showing the minimal seamless hinge and ear cup pivot of silver Sony WH-1000XM5 wireless headphones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPMeMjxBdACcXVZrSNjJ7brTHeSP-rwHlCj1EIbsu7kmHkfr4NpfTA_eeZekdeEgTY3Xelmqi9kFPNNU4bUV58_FykMU_8cfGhVZpiAkVXP53QHlOm9M17efK3nec45czhrW8S0R9Uq0MMUazz_HwTIbThJPYcyKzSc_XUrfW0UbXkAowPNj6Pfv8GB3QBqAF_DLqzwzTsksDitakRAbJ-kj8uRIrTSx27SgWyw_GiVsS4zeqSfGXP"/>
+</button>
+<button class="thumbnail-selector relative aspect-square rounded-lg overflow-hidden bg-surface-container-lowest p-1 shadow-sm transition-all focus:outline-none hover:bg-surface-container-high opacity-80 hover:opacity-100" onclick="switchPhoto(2, this)">
+<img class="w-full h-full object-cover rounded" data-alt="Close macro focus on soft memory foam plush earcups and noise-cancelling microphone acoustic grilles on Sony XM5 headphones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP0Rc4CVVFq9VtIorgLnuKG80l8BDPMWcElvj21-afP-jyOs5eijFzbVpjBnpcpUN0gENtulXYqnSA2SLRtbr--zqZadob5_BtfgdNNOEJCja3DQZf0VCIG9s_vPMVeZE-a_W4XoiBVHdOuAs2fJyhAB_IT1-ifDiH5ssszvE8pu-MebDY-2E8YQfFGqLVcoVDcKPsCO88Pvj0twrq-Gn0mbP-A2dJWBp90JbIcXYMcYPoTZq1Xv2r"/>
+</button>
+<button class="thumbnail-selector relative aspect-square rounded-lg overflow-hidden bg-surface-container-lowest p-1 shadow-sm transition-all focus:outline-none hover:bg-surface-container-high opacity-80 hover:opacity-100" onclick="switchPhoto(3, this)">
+<img class="w-full h-full object-cover rounded" data-alt="Silver Sony WH-1000XM5 folded neatly inside the official light gray collapsible magnetic travel case with cables neatly arranged in secret compartment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfcVcC9t8MpuMeZf6visBwaC5qfZRwyESHqqnfTSoxokXf5RHA5I2u_y04cDgOWSvP3xuGJoj8sxywSH-BGnA4V08Az1YTyc2ZY77QNiqshpeSgTXWfbSshHRnla-LCPLlGI1l47GbSkq9ymcBo-lscBFIPD5xeCFPUIUoviB8omd-hDyyIniJxBQPoRRNEcmOC57L3bfFM2mNuksVLN2Mm6A05lw_IqYCB3UfUSg3fLLv5iROGWMD"/>
+</button>
+<button class="thumbnail-selector relative aspect-square rounded-lg overflow-hidden bg-surface-container-lowest p-1 shadow-sm transition-all focus:outline-none hover:bg-surface-container-high opacity-80 hover:opacity-100" onclick="switchPhoto(4, this)">
+<img class="w-full h-full object-cover rounded" data-alt="Full unboxing package layout showing pristine retail Sony WH-1000XM5 packaging, USB-C charge cable, 3.5mm stereo cable, warranty manuals and packaging slip." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqPh-FkvN0gcYxInW44x-hTPe6hIBgEOgo4DD8kE0iHQN4v1HT5t6PKmZMPefZ13JKXT3KRXzwFG_1yxWJJ-ZSOkAt_R-HMQtGCX6ZlIL5ZhN04Efb4mtLw5v_G7pcMf-5jq6pQ59BVOabBnbz051bwyfENp63EC6MUCMRhxEkZonvzaR1fTwp5gUmKFc_sYA6UFtl49kj6PlExxa7AxYhWbONS37xv0dx2jEf5E8f2jK2hblCzG9w"/>
+</button>
+</div>
+<!-- Specifications & Technical Tabs Canvas -->
+<div class="mt-space-md bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<!-- Tab Headers -->
+<div class="flex items-center gap-space-sm pb-space-sm">
+<button class="tab-btn font-label-lg text-label-lg px-space-md py-2 rounded-lg bg-surface-container-high text-primary font-bold transition-all" onclick="switchTab('desc', this)">
+              Description
+            </button>
+<button class="tab-btn font-label-lg text-label-lg px-space-md py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" onclick="switchTab('specs', this)">
+              Specifications
+            </button>
+<button class="tab-btn font-label-lg text-label-lg px-space-md py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" onclick="switchTab('rules', this)">
+              Shipping &amp; Meetup
+            </button>
+</div>
+<!-- Tab Content: Description -->
+<div class="tab-panel flex flex-col gap-space-md mt-space-sm text-on-surface-variant font-body-md text-body-md leading-relaxed" id="tab-desc">
+<p>
+              Selling my pristine <strong>Sony WH-1000XM5</strong> wireless noise-canceling headphones in the elegant Silver colorway. Purchased brand new less than 4 months ago for work travel, but I recently transitioned to an in-ear monitor setup.
+            </p>
+<p>
+              Headphones have been cared for meticulously in a smoke-free, pet-free home office. Absolutely zero scuffs, scratches, or cosmetic wear on the headband or earcups. Battery health tests at 100% capacity (yields 30+ hours on single charge with ANC enabled).
+            </p>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-2">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Included in Purchase:</h4>
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-on-surface font-body-sm text-body-sm">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span>Sony WH-1000XM5 Headphones (Silver)</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span>Original OEM Magnetic Hardshell Case</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span>Factory USB-A to USB-C Fast Cable</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span>Gold-plated 3.5mm Aux Audio Cord</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span>Original Retail Box &amp; Documents</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span>TradeHub Escrow Transfer ID Certificate</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Tab Content: Specs (Hidden by default) -->
+<div class="tab-panel hidden flex-col gap-space-sm mt-space-sm" id="tab-specs">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-outline">Brand &amp; Model</span>
+<p class="font-headline-sm text-headline-sm text-on-surface">Sony WH-1000XM5</p>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-outline">Active Noise Cancellation</span>
+<p class="font-headline-sm text-headline-sm text-on-surface">Dual Processor V1 + QN1</p>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-outline">Battery Playtime</span>
+<p class="font-headline-sm text-headline-sm text-on-surface">30 Hrs (ANC On) / 40 Hrs (Off)</p>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-outline">Bluetooth Codecs</span>
+<p class="font-headline-sm text-headline-sm text-on-surface">LDAC, AAC, SBC, Multi-point</p>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-outline">Microphones</span>
+<p class="font-headline-sm text-headline-sm text-on-surface">8 Mics with AI Beamforming</p>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-outline">Weight</span>
+<p class="font-headline-sm text-headline-sm text-on-surface">250g (Ultra Lightweight)</p>
+</div>
+</div>
+</div>
+<!-- Tab Content: Rules (Hidden by default) -->
+<div class="tab-panel hidden flex-col gap-space-sm mt-space-sm text-on-surface-variant font-body-md text-body-md" id="tab-rules">
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0">pin_drop</span>
+<div>
+<h5 class="font-headline-sm text-headline-sm text-on-surface">Verified Safe Meetup Location</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Meetups are scheduled exclusively at Seattle Police Department Community Safe Zone (Westlake / 4th Ave) or inside Whole Foods Cafe. Full testing on your own phone is welcome before code release.
+                </p>
+</div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-[22px] shrink-0">local_shipping</span>
+<div>
+<h5 class="font-headline-sm text-headline-sm text-on-surface">Insured Tracked Shipping Guidelines</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Dispatched within 24 business hours via USPS Priority Mail with signature verification requirement. Escrow funds stay protected until tracking marks delivered and you certify inspection.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Safe Transaction Security Info Graphic -->
+<div class="bg-gradient-to-br from-surface-container-lowest via-surface-container-low to-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<!-- Inline SVG Trust Shield Graphic -->
+<div class="w-14 h-14 rounded-full bg-primary-container/10 flex items-center justify-center shrink-0">
+<svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+<path d="m9 12 2 2 4-4"></path>
+</svg>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">TradeHub Zero-Risk Escrow Protection</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
+                Your payment is held in neutral secure escrow. The seller isn't paid until you receive the headphones and confirm condition within 48 hours.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-3 py-1.5 rounded-full bg-surface-container text-primary font-label-md text-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">lock_clock</span>
+<span>48h Return Window</span>
+</span>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Purchase Actions, Price & Seller Details (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg min-w-0">
+<!-- Primary Commerce & Offer Box -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-md sticky top-32">
+<!-- Category & Condition Tagline -->
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                Electronics
+              </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">
+                Like New
+              </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                Pre-Owned
+              </span>
+</div>
+<!-- Save to Favorites Heart Trigger -->
+<button aria-label="Add to favorites" class="w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-error flex items-center justify-center transition-colors focus:outline-none" id="favorite-btn" onclick="toggleFavorite()">
+<span class="material-symbols-outlined text-[20px]" id="fav-icon">favorite</span>
+</button>
+</div>
+<!-- Title & Geolocation Timestamp -->
+<div class="flex flex-col gap-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight leading-snug">
+              Sony WH-1000XM5 Wireless Noise-Cancelling Headphones - Silver
+            </h1>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm mt-1">
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+<span>Listed 4 hours ago in</span>
+<span class="font-semibold text-on-surface">Downtown Seattle, WA</span>
+</div>
+</div>
+<!-- Price Engine & Retail Value Comparison -->
+<div class="bg-surface-container-low/70 p-space-md rounded-lg flex items-baseline justify-between gap-space-md">
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-md text-display-md text-primary font-black tracking-tight leading-none">$275.00</span>
+<span class="font-body-md text-body-md text-outline line-through">$399.99</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">
+                Compare at retail MSRP • <span class="text-tertiary-container font-bold">Save 31% ($124.99)</span>
+</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">local_fire_department</span>
+<span>Fair Price</span>
+</span>
+<span class="font-body-sm text-body-sm text-outline mt-1">0% Sales Tax (Local)</span>
+</div>
+</div>
+<!-- Fulfillment & Delivery Method Selectors -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface">Delivery &amp; Pickup Options</span>
+<label class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer shadow-sm">
+<input checked="" class="mt-1 text-primary focus:ring-0" name="fulfillment" type="radio"/>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">near_me</span>
+<span>Local Meetup</span>
+</span>
+<span class="font-label-md text-label-md text-tertiary-container font-semibold">Free</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+                  Public Safe Spot near Westlake Transit Station (1.2 mi away)
+                </p>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer shadow-sm">
+<input class="mt-1 text-primary focus:ring-0" name="fulfillment" type="radio"/>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">local_shipping</span>
+<span>Insured Fast Shipping</span>
+</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">$12.50</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+                  USPS Priority Mail with Tracking (2-3 business days)
+                </p>
+</div>
+</label>
+</div>
+<!-- High-Priority Conversion Buttons -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<button class="w-full h-12 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-xs transition-all shadow-md active:scale-[0.99]">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span>Make Offer / Buy Now</span>
+</button>
+<button class="w-full h-11 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs transition-all" onclick="openMessageModal()">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Message Seller</span>
+</button>
+</div>
+<!-- Instant Seller Quick-Inquiry Chips -->
+<div class="flex flex-col gap-1.5 pt-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Quick Inquiries</span>
+<div class="flex flex-wrap gap-1.5">
+<button class="px-space-sm py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors text-left truncate max-w-[190px]" onclick="sendQuickMessage('Is this still available?')">
+                “Is this still available?”
+              </button>
+<button class="px-space-sm py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors text-left truncate" onclick="sendQuickMessage('Can you do $250?')">
+                “Can you do $250?”
+              </button>
+<button class="px-space-sm py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors text-left truncate" onclick="sendQuickMessage('Where can we meet?')">
+                “Where can we meet?”
+              </button>
+</div>
+<!-- Feedback toast notification -->
+<div class="hidden font-body-sm text-body-sm text-tertiary font-semibold flex items-center gap-1 mt-1 transition-opacity" id="quick-toast">
+<span class="material-symbols-outlined text-[15px]">done</span>
+<span id="toast-text">Drafted to seller inbox</span>
+</div>
+</div>
+<!-- TradeHub Buyer Guarantee Callout Box -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-tertiary-container text-[22px] shrink-0 mt-0.5">shield_with_heart</span>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-surface font-bold">TradeHub Buyer Protection Included</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Full refund guarantee if this item is missing, damaged in transit, or not noticeably as described by the seller.
+              </p>
+</div>
+</div>
+</div>
+<!-- Comprehensive Seller Profile Dossier Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative shrink-0">
+<img class="w-14 h-14 rounded-full object-cover shadow-sm" data-alt="Professional profile headshot portrait of Elena Vance, a trusted audio engineer and marketplace seller, smiling warmly with modern studio backdrop lighting and soft bokeh." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4-GM9GDL8iWjvD1jX0HI6HBiNwqYCRJkTZcavPZkVWYrHANGtmsBZbs0QbvFpefwtN_mz4buaGDfxv50O-OA2fyZcvB2Y9gs3SHME0Hh2RVpBLq7-VKD7eri7kJsmRgKnV3rRAPWD7VmKn33Cb2O_NYMlZb-_uwkr3udSEuf_FIYBliLXWSpbMZYAoD-i1q4b1MptiwZPuZ3s50mU11rJqgVgrOWF3frEFh0XmRfVyzZenQd1UvYc"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-tertiary border-2 border-surface-container-lowest flex items-center justify-center text-[10px] text-on-tertiary font-bold" title="Online now">✓</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Elena Vance</h3>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>Identity Verified</span>
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Member since March 2021 • Seattle, WA</p>
+</div>
+</div>
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold transition-colors shrink-0">
+              Follow
+            </button>
+</div>
+<!-- Seller Key Metric Grid -->
+<div class="grid grid-cols-3 gap-space-xs bg-surface-container-low p-space-sm rounded-lg text-center">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center justify-center gap-0.5">
+<span>4.95</span>
+<span class="material-symbols-outlined text-[16px] text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">78 Sales</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">100%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">On-Time Ship</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">&lt; 15 min</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Response Time</span>
+</div>
+</div>
+<!-- Trust Badges & Verified Safety Notes -->
+<div class="flex flex-col gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">military_tech</span>
+<span>Top Rated Tech Specialist Seller for 2 consecutive years</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">verified_user</span>
+<span>Phone, Government ID, and Bank Account authenticated</span>
+</div>
+</div>
+<!-- More Items From This Seller Showcase -->
+<div class="flex flex-col gap-space-sm pt-space-sm">
+<div class="flex items-center justify-between">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">More from Elena</h4>
+<a class="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-0.5" href="#">
+<span>View all 6</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+<!-- Mini 2-Card Preview Grid -->
+<div class="grid grid-cols-2 gap-space-sm">
+<a class="group flex flex-col bg-surface-container-low rounded-lg p-space-xs hover:bg-surface-container transition-all" href="#">
+<div class="aspect-square rounded overflow-hidden bg-surface-container-lowest mb-space-xs">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" data-alt="Audio-Technica AT2020 USB condenser microphone placed with shock mount on desk with black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgpVMqKApDwgZMBJ5gt47sUz4otDK6CAtAGxkLCGGlbREVSukP2poYZlBK3qdxbeW8bonk2ZQRhxWuJaduuvsTq1GMH6xQkkNHnHWa7VtuFFvsBILASTwb6ygFZsqHnS4XXpfxVQ5OLSTsM261m2tT5S2_WEPrHKI7RMWrc1tfpEdnMumzMkAVuv0jypHoGYMqqkAqRncVqlUpkE2vKrnmCrss_Sg0dsY1-4GC6lluWQSOlZdOsRcq"/>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate group-hover:text-primary transition-colors">Audio-Technica AT2020 USB</p>
+<div class="flex items-center justify-between mt-0.5">
+<span class="font-label-sm text-label-sm text-primary font-bold">$85.00</span>
+<span class="font-label-sm text-label-sm text-outline">Excellent</span>
+</div>
+</a>
+<a class="group flex flex-col bg-surface-container-low rounded-lg p-space-xs hover:bg-surface-container transition-all" href="#">
+<div class="aspect-square rounded overflow-hidden bg-surface-container-lowest mb-space-xs">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" data-alt="Apple iPad Air 5th Generation in Starlight with smart folio cover resting on dark wooden workstation table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsqs2EmjUPM0KLjZC3OXGkK0lboZjLBLi_yB1mJtkKBrf3vZm9FPZjX0Iug0hQ07O3HdaXC0irCh0yV4upB_-RFCt6U7e4FhkciYPFwD9ryDdmXLlnNR2m8eMN-ITicK64Ons1R1VqQk8FNVbK7HA60qpFiR7kHUQ2JqiUevEgv5S70f7z2y_Ao2IoymUhrBniuSUw2KwNGRyfANX_IUbVB7cerNntBPu-cxZZmYj_eVmRnkxoja2o"/>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate group-hover:text-primary transition-colors">iPad Air 5 64GB WiFi</p>
+<div class="flex items-center justify-between mt-0.5">
+<span class="font-label-sm text-label-sm text-primary font-bold">$390.00</span>
+<span class="font-label-sm text-label-sm text-outline">Pristine</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- Safe Transaction Location Map Preview -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">security</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Suggested Safe Exchange Hub</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">Monitored Zone</span>
+</div>
+<!-- Google Maps Integration with data-location -->
+<div class="w-full h-44 rounded-lg bg-cover bg-center overflow-hidden relative shadow-inner flex items-end p-space-sm" data-location="Westlake Center, Seattle, WA" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRDk7nmmfBNXmJAo8EEcfoevkUSBtGhNhHu1dc6GtR-shxXo6PpP9-sJw5U3lIOfODBLbojkBzc1sKac_lVeRmKfFVlzpGt2lCuhmkgO3mpvEjSSczeYdMOU6FqCLrhehozlF_1ik96GKyTjFv20paM-JYyqUOLk1scR7WZCTrc_0fh0gkJCeWlvKJ0hsQeEaYu53fJD4OxEFHJnzWayeVjIw3AQ2wf4YhYp_F79fCZly4vef4QRD7')">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-space-sm py-1 rounded text-on-surface font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-error">place</span>
+<span>Westlake Plaza Public Transit Mall (SPD Monitored)</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Safe meetup spots have 24/7 high-definition surveillance cameras and bright pedestrian lighting.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Similar Listings Discovery Section -->
+<section class="max-w-[1360px] mx-auto px-margin py-space-xl w-full">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Similar Premium Audio Gear</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Handpicked peer-to-peer audio listings with verified authenticity in Seattle</p>
+</div>
+<a class="font-label-lg text-label-lg text-primary hover:underline flex items-center gap-1" href="#">
+<span>Explore All Audio</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+<!-- 4-Column Card Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col group">
+<div class="relative aspect-[4/3] bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Bose QuietComfort Ultra wireless noise cancelling headphones in black obsidian finish resting on glass stand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3I670pWHECpfQgrVsVXZmaAsZGP4hBohQfb11bFPSuUCH7u_8ZtECKZmJi8WiSL5WrvgIJsI-jLilvIJe-CW31Q13vUqXzWAQVeFMVh8Hb7PQYkbuq2iDoO84f3n3GyExTFNZJ11QulS8ad6fRSuYzaftkX8dLpQasjHPokHwJEzFQ7raLEMUUJ-kUmN1pkciQSiZigVq5f1hqONzyEgFDEvchmndxqfQzleGdArCP0uHTvvJn6Fu"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-sm text-label-sm font-medium">Bose</span>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm mb-1">
+<span class="text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">verified</span> 4.9 (42)
+              </span>
+<span>Capitol Hill • 3mi</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate group-hover:text-primary transition-colors">
+              Bose QC Ultra Wireless
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Includes all cables and hardshell zip box</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-headline-md text-headline-md text-primary font-bold">$260.00</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Like New</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col group">
+<div class="relative aspect-[4/3] bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Apple AirPods Max space gray over ear headphones with smart case lying flat on minimalist ash table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeYAT_txGB-G9LxnuZVJ51QeQJ1IAHvh_gYRLaUpwl7ESAwWjTLxPRLqfgWKJBcLzzDXuF--pyuopcACmdY_sYSgY9lfBe5TYa9ijU0PTHOw3OH-Sc3kk_4usRPcGK7r4IQXVwvv5K372AASGqV6GKwYug1m32L3X2_uo-az-_QchZQeNiqUR8WfrJWoogGmQ2N3g1D83JrDJU8-fk3JL9J2uCEa26wPGr54Gh-FFwKnWIx39K8oyo"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-sm text-label-sm font-medium">Apple</span>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm mb-1">
+<span class="text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">verified</span> 5.0 (19)
+              </span>
+<span>Bellevue • 8mi</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate group-hover:text-primary transition-colors">
+              AirPods Max - Space Gray
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">AppleCare+ active through Dec 2025</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-headline-md text-headline-md text-primary font-bold">$340.00</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Pristine</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col group">
+<div class="relative aspect-[4/3] bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Sennheiser Momentum 4 wireless headphones in stylish white and fabric accents displayed on wooden headphone stand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoJguxNc6vBsdDsbOEfSbxIruumUHs8lKdZLfeBOF390sbpqbLtHwj5NSzzHi5Bd1YK-cR5VqGDpoPcOdE5pJg1gqrpiSqE0sUy1IW5OL4icjLwAjQjcwnKiJJIfZ0WxwV_H4UghwoXQPKsSfdVJNimeew8gPWli-WmbQhlq8z2siI3OJJSqdVxwbmVjaLNjZ8bNkTW6VpLgvJmb3zFIW3Cli-Nza8uHafOpjlOkFAJkpUj6ijYEkY"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-sm text-label-sm font-medium">Sennheiser</span>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm mb-1">
+<span class="text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">verified</span> 4.8 (31)
+              </span>
+<span>Fremont • 2mi</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate group-hover:text-primary transition-colors">
+              Momentum 4 ANC Wireless
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">60hr battery monster, fresh pads</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-headline-md text-headline-md text-primary font-bold">$210.00</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Very Good</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col group">
+<div class="relative aspect-[4/3] bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Sony WH-1000XM4 matte midnight blue wireless headphones folded neatly next to airline adapter and aux cable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw8ssHXyfVnOp9uuCISRDXf7uDPX_P2QmsQoMXBS4AJ27lnNEdGjtgBj-9P6WJLTvByQbnnXflxtc8WvR-apGfCsIkosEHyxZovroPr_46Ali-FaThMgkk7K4zvI6ksPEOs5b2YDO5hGlwgEIN88XW8_75QkVIoufA8j22_KTqEiz7rsp3LnJHWXQXqgXHUcAOG-I1MIY_aMxTa6v1RuGWVRPIw7CdfG811SFOCbLp2wnjFK2XJn0x"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-sm text-label-sm font-medium">Sony</span>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm mb-1">
+<span class="text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">verified</span> 4.9 (88)
+              </span>
+<span>Ballard • 4mi</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate group-hover:text-primary transition-colors">
+              Sony WH-1000XM4 Midnight
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Previous gen flagship, flawless condition</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-headline-md text-headline-md text-primary font-bold">$180.00</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Good</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Client-side Script -->
+<script>
+    // Photo Gallery Switcher Logic
+    const galleryPrompts = [
+      "Editorial studio macro shot of silver Sony WH-1000XM5 wireless noise-cancelling headphones resting gracefully on a sculpted matte warm-grey podium. High-end product commercial photography with soft indigo rim highlights, subtle directional daylight, ultra sharp textures of synthetic leather earcups and smooth satin headband, premium commerce aesthetic.",
+      "Side profile closeup view showing the minimal seamless hinge and ear cup pivot of silver Sony WH-1000XM5 wireless headphones in crisp focus with studio highlights.",
+      "Close macro focus on soft memory foam plush earcups and noise-cancelling microphone acoustic grilles on Sony XM5 headphones under neutral white lightbox illumination.",
+      "Silver Sony WH-1000XM5 folded neatly inside the official light gray collapsible magnetic travel case with cables neatly arranged in secret compartment on birch desk.",
+      "Full unboxing package layout showing pristine retail Sony WH-1000XM5 packaging, USB-C charge cable, 3.5mm stereo cable, warranty manuals and packaging slip."
+    ];
+
+    function switchPhoto(index, el) {
+      const showcaseImg = document.getElementById('active-showcase-image');
+      const counter = document.getElementById('gallery-counter');
+      if (showcaseImg) {
+        showcaseImg.src = "placeholder";
+        showcaseImg.setAttribute('data-alt', galleryPrompts[index]);
+        if (counter) counter.innerText = (index + 1) + " of 5 Photos";
+      }
+
+      document.querySelectorAll('.thumbnail-selector').forEach((thumb) => {
+        thumb.classList.remove('ring-2', 'ring-primary', 'opacity-100');
+        thumb.classList.add('opacity-80');
+      });
+      el.classList.add('ring-2', 'ring-primary', 'opacity-100');
+      el.classList.remove('opacity-80');
+    }
+
+    // Detail Tabs Switcher
+    function switchTab(tabKey, el) {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-surface-container-high', 'text-primary', 'font-bold');
+        btn.classList.add('text-on-surface-variant');
+      });
+      el.classList.add('bg-surface-container-high', 'text-primary', 'font-bold');
+      el.classList.remove('text-on-surface-variant');
+
+      document.querySelectorAll('.tab-panel').forEach(panel => {
+        panel.classList.add('hidden');
+        panel.classList.remove('flex');
+      });
+
+      const target = document.getElementById('tab-' + tabKey);
+      if (target) {
+        target.classList.remove('hidden');
+        target.classList.add('flex');
+      }
+    }
+
+    // Quick Inquiry Chips Interaction
+    function sendQuickMessage(text) {
+      const toast = document.getElementById('quick-toast');
+      const toastText = document.getElementById('toast-text');
+      if (toast && toastText) {
+        toastText.innerText = 'Sent to Elena: "' + text + '"';
+        toast.classList.remove('hidden');
+        setTimeout(() => {
+          toast.classList.add('hidden');
+        }, 3200);
+      }
+    }
+
+    // Toggle Favorites Heart State
+    let isFavorite = false;
+    function toggleFavorite() {
+      isFavorite = !isFavorite;
+      const favIcon = document.getElementById('fav-icon');
+      const favBtn = document.getElementById('favorite-btn');
+      if (isFavorite) {
+        favIcon.style.fontVariationSettings = "'FILL' 1";
+        favBtn.classList.add('text-error', 'bg-error-container/40');
+      } else {
+        favIcon.style.fontVariationSettings = "'FILL' 0";
+        favBtn.classList.remove('text-error', 'bg-error-container/40');
+      }
+    }
+
+    function openMessageModal() {
+      sendQuickMessage("Hi Elena, I'd like to ask a question about the XM5s!");
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl"><div class="max-w-[1360px] mx-auto px-margin pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-lg pb-space-xl"><div class="lg:col-span-2 flex flex-col gap-space-sm pr-space-lg"><div class="flex items-center gap-space-xs"><img alt="TradeHub Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X1sxbtvVxKrC_YHKTakqXzoxijwALawB7LHNnb58jNZlFzCORu2fumPHwI7c2OBsBqq_iwa60fuLGGw-F4iHMyav1bhvNmOsu-lOqLf5yVWQlHjMBz9qgrHgqH1FksqZ18p4DGocd3qs586xceHp_3C61SZGJSkY-1_Vf9IWt1Xjcc5Gd3Et_Pjk0e_QaVMQLeYJv6CM4PVcvH2Y860btGFIQreioB66dYED2g0ZVjSsutAUOxP2DsRdE"/><span class="font-headline-sm text-headline-sm text-primary">TradeHub</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">The peer-to-peer commerce standard connecting verified buyers and trusted sellers with zero-friction escrow security and instant resolution.</p><div class="flex items-center gap-space-sm mt-space-xs"><span class="inline-flex items-center gap-1 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-tertiary-container"><span class="material-symbols-outlined text-[14px]">shield</span>Buyer Guarantee</span><span class="inline-flex items-center gap-1 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-secondary"><span class="material-symbols-outlined text-[14px]">lock</span>Escrow Protected</span></div></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Marketplace</h4><nav class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant"><a class="hover:text-primary transition-colors" data-path="browse-marketplace" href="#">All Listings</a><a class="hover:text-primary transition-colors" data-path="category-electronics" href="#">Electronics Hub</a><a class="hover:text-primary transition-colors" data-path="category-gaming" href="#">Gaming Gear</a><a class="hover:text-primary transition-colors" data-path="category-collectibles" href="#">Rare Collectibles</a></nav></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Safety &amp; Trust</h4><nav class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant"><a class="hover:text-primary transition-colors" data-path="safety-center" href="#">Safety Center</a><a class="hover:text-primary transition-colors" data-path="safety-center" href="#">Escrow Protection</a><a class="hover:text-primary transition-colors" data-path="safety-center" href="#">ID Verification</a><a class="hover:text-primary transition-colors" data-path="safety-center" href="#">Dispute Resolution</a></nav></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Seller Tools</h4><nav class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant"><a class="hover:text-primary transition-colors" data-path="seller-dashboard" href="#">Seller Hub</a><a class="hover:text-primary transition-colors" data-path="create-listing" href="#">Listing Studio</a><a class="hover:text-primary transition-colors" data-path="seller-dashboard" href="#">Fee Schedule</a><a class="hover:text-primary transition-colors" data-path="seller-dashboard" href="#">Seller Verification</a></nav></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><p>© 2024 TradeHub Marketplace, Inc. All rights reserved.</p><div class="flex items-center gap-space-md"><a class="hover:text-on-surface transition-colors" href="#">Terms of Service</a><a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" href="#">Security Disclosures</a></div></div></div></footer></body></html>

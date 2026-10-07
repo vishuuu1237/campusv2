@@ -92,6 +92,18 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+export const calculateListingFee = (price) => {
+  const p = parseFloat(price) || 0;
+  if (p <= 0) return 0;
+  if (p <= 100) return 5;
+  if (p <= 500) return 10;
+  if (p <= 1000) return 25;
+  // Above 1000: 50rs + 2rs for each 500rs above 1000rs
+  const excess = p - 1000;
+  const extraSlabs = Math.ceil(excess / 500);
+  return 50 + extraSlabs * 2;
+};
+
 // Create product (requires auth)
 // Accepts either JSON body with `image` URL or multipart/form-data with file field `imageFile` (png/jpg)
 router.post('/', verifyToken, upload.single('imageFile'), async (req, res) => {
@@ -106,12 +118,15 @@ router.post('/', verifyToken, upload.single('imageFile'), async (req, res) => {
     const products = await getProducts();
 
     const imageUrl = req.file ? `/uploads/${req.file.filename}` : (image || 'https://via.placeholder.com/300');
+    const parsedPrice = parseFloat(price);
+    const listingFee = calculateListingFee(parsedPrice);
 
     const newProduct = {
       id: Date.now().toString(),
       name,
       description,
-      price: parseFloat(price),
+      price: parsedPrice,
+      listingFee,
       category,
       image: imageUrl,
       stock: stock || 1,
@@ -152,6 +167,11 @@ router.put('/:id', verifyToken, upload.single('imageFile'), async (req, res) => 
       id: products[productIndex].id,
       sellerId: products[productIndex].sellerId
     };
+
+    if (req.body.price !== undefined) {
+      updatedProduct.price = parseFloat(req.body.price);
+      updatedProduct.listingFee = calculateListingFee(updatedProduct.price);
+    }
 
     // If a new image file was uploaded, update the image path
     if (req.file) {

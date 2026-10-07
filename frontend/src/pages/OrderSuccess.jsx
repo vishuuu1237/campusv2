@@ -19,10 +19,11 @@ const OrderSuccess = () => {
     if (id) {
       fetchOrder();
     }
-  }, [id, user]);
+  }, [id, user, navigate]);
 
   const fetchOrder = async () => {
     try {
+      setLoading(true);
       const response = await axios.get(`/api/orders/${id}`);
       setOrder(response.data);
     } catch (error) {
@@ -34,17 +35,20 @@ const OrderSuccess = () => {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8 text-center">
-        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+      <div className="max-w-[1360px] mx-auto px-4 py-16 text-center">
+        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
+        <p className="mt-4 font-body-md text-on-surface-variant">
+          Confirming escrow transaction...
+        </p>
       </div>
     );
   }
 
   if (!order) {
     return (
-      <div className="container mx-auto px-4 py-8 text-center">
-        <p className="text-gray-600">Order not found</p>
-        <Link to="/orders" className="text-primary-600 hover:underline mt-4 inline-block">
+      <div className="max-w-xl mx-auto px-4 py-16 text-center space-y-4">
+        <h2 className="font-headline-md text-on-surface">Order Record Not Found</h2>
+        <Link to="/orders" className="text-primary hover:underline font-label-md">
           View All Orders
         </Link>
       </div>
@@ -52,132 +56,90 @@ const OrderSuccess = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-3xl">
-      <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-        <div className="mb-6">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg
-              className="w-12 h-12 text-green-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-          </div>
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">Order Placed Successfully!</h1>
-          <p className="text-gray-600">Thank you for your order</p>
+    <div className="max-w-2xl mx-auto px-4 py-space-xl">
+      <div className="bg-surface-container-lowest rounded-2xl shadow-xl border border-outline-variant/30 p-6 sm:p-8 text-center space-y-6">
+        {/* Success Icon */}
+        <div className="w-16 h-16 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mx-auto shadow-sm">
+          <span className="material-symbols-outlined text-[36px]">verified</span>
         </div>
 
-        <div className="bg-gray-50 rounded-lg p-6 mb-6 text-left">
-          <div className="mb-4">
-            <h2 className="text-lg font-semibold text-gray-800 mb-2">Order Details</h2>
-            <p className="text-sm text-gray-600">
-              <strong>Order ID:</strong> #{order.id.slice(-8)}
-            </p>
-            <p className="text-sm text-gray-600">
-              <strong>Date:</strong> {new Date(order.createdAt).toLocaleString()}
-            </p>
-            <p className="text-sm text-gray-600">
-              <strong>Status:</strong>{' '}
-              <span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs">
-                {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+        <div>
+          <span className="font-label-sm text-tertiary-container font-semibold uppercase tracking-wider block mb-1">
+            Escrow Holding Established
+          </span>
+          <h1 className="font-headline-lg text-on-surface">Order Placed Successfully!</h1>
+          <p className="font-body-md text-on-surface-variant max-w-md mx-auto mt-1">
+            Your funds are safely held in neutral TradeHub escrow. The seller has been alerted to prepare the handoff.
+          </p>
+        </div>
+
+        {/* Order Details Dossier */}
+        <div className="bg-surface-container-low rounded-2xl p-5 text-left space-y-4 text-xs font-body-sm text-on-surface-variant">
+          <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-outline-variant/20">
+            <div>
+              <span className="text-outline block text-[11px]">Escrow Order ID</span>
+              <span className="font-headline-sm text-on-surface font-bold text-sm">
+                #{order.id}
               </span>
-            </p>
+            </div>
+            <div className="text-right">
+              <span className="text-outline block text-[11px]">Handoff Status</span>
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-semibold">
+                <span className="material-symbols-outlined text-[12px]">schedule</span>
+                Pending Handoff
+              </span>
+            </div>
           </div>
 
-          <div className="mb-4">
-            <h3 className="font-semibold text-gray-800 mb-2">Items Ordered:</h3>
-            <div className="space-y-2">
-              {order.items.map((item, index) => (
-                <div key={index} className="flex justify-between text-sm">
-                  <span className="text-gray-700">
+          {/* Items summary */}
+          <div>
+            <span className="font-label-md text-on-surface font-semibold block mb-2">
+              Reserved Items:
+            </span>
+            <div className="space-y-1.5">
+              {(order.items || []).map((item, idx) => (
+                <div key={idx} className="flex justify-between items-center py-1">
+                  <span className="text-on-surface">
                     {item.name} × {item.quantity}
                   </span>
-                  <span className="text-gray-700 font-semibold">
-                    {formatINR(item.price * item.quantity)}
+                  <span className="font-semibold text-on-surface">
+                    {formatINR(Number(item.price) * item.quantity)}
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="border-t pt-4">
-            <div className="flex justify-between text-lg font-bold text-gray-800">
-              <span>Total:</span>
-              <span className="text-primary-600">{formatINR(order.total)}</span>
+          {/* Location & Total */}
+          <div className="pt-3 border-t border-outline-variant/20 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span className="text-outline block text-[11px]">Safe Handoff Spot</span>
+              <span className="text-on-surface font-semibold">
+                {order.shippingAddress?.campusLocation || 'Campus Hub'}
+              </span>
+            </div>
+            <div className="text-right">
+              <span className="text-outline block text-[11px]">Total Paid (Escrow)</span>
+              <span className="font-headline-md text-primary font-bold text-lg">
+                {formatINR(order.total)}
+              </span>
             </div>
           </div>
         </div>
 
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 text-left">
-          <h3 className="font-semibold text-blue-800 mb-2">Payment Information</h3>
-          <p className="text-sm text-blue-700 mb-2">
-            <strong>Payment Method:</strong> {order.paymentMethod.charAt(0).toUpperCase() + order.paymentMethod.slice(1)}
-          </p>
-          <p className="text-sm text-blue-700">
-            {order.paymentMethod === 'cash' && (
-              <>You'll pay in cash when you pick up the item. Contact the seller to arrange pickup.</>
-            )}
-            {order.paymentMethod === 'venmo' && (
-              <>Please send payment via Venmo. Contact the seller for their Venmo details.</>
-            )}
-            {order.paymentMethod === 'paypal' && (
-              <>Please send payment via PayPal. Contact the seller for their PayPal email.</>
-            )}
-          </p>
-        </div>
-
-        <div className="bg-gray-50 rounded-lg p-4 mb-6 text-left">
-          <h3 className="font-semibold text-gray-800 mb-2">Shipping Address</h3>
-          <p className="text-sm text-gray-700">
-            {order.shippingAddress.street}
-            <br />
-            {order.shippingAddress.city}, {order.shippingAddress.state} {order.shippingAddress.zip}
-            {order.shippingAddress.campusLocation && (
-              <>
-                <br />
-                {order.shippingAddress.campusLocation}
-              </>
-            )}
-          </p>
-        </div>
-
-        <div className="flex space-x-4 justify-center">
-          {order.status === 'pending' || order.status === 'processing' ? (
-            <button
-              onClick={async () => {
-                if (window.confirm('Are you sure you want to cancel this order?')) {
-                  try {
-                    await axios.post(`/api/orders/${order.id}/cancel`);
-                    alert('Order cancelled successfully');
-                    navigate('/orders');
-                  } catch (error) {
-                    alert(error.response?.data?.error || 'Failed to cancel order');
-                  }
-                }
-              }}
-              className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-semibold"
-            >
-              Cancel Order
-            </button>
-          ) : null}
+        {/* Actions */}
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           <Link
             to="/orders"
-            className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-semibold"
+            className="px-6 py-2.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-md font-semibold transition-all shadow-sm"
           >
-            View All Orders
+            Track in My Orders
           </Link>
           <Link
             to="/"
-            className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition font-semibold"
+            className="px-6 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md transition-all"
           >
-            Continue Shopping
+            Continue Browsing
           </Link>
         </div>
       </div>
@@ -186,4 +148,3 @@ const OrderSuccess = () => {
 };
 
 export default OrderSuccess;
-

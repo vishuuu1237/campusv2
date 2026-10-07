@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { formatINR } from '../utils/currency';
@@ -13,11 +13,12 @@ const Checkout = () => {
     city: '',
     state: '',
     zip: '',
-    campusLocation: ''
+    campusLocation: 'Student Union / Central Library',
   });
   const [paymentMethod, setPaymentMethod] = useState('cash');
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     if (!user) {
@@ -25,17 +26,18 @@ const Checkout = () => {
       return;
     }
     fetchCart();
-  }, [user]);
+  }, [user, navigate]);
 
   const fetchCart = async () => {
     try {
+      setLoading(true);
       const response = await axios.get('/api/cart');
-      setCart(response.data);
-      if (response.data.items.length === 0) {
+      setCart(response.data || { items: [] });
+      if (!response.data || !response.data.items || response.data.items.length === 0) {
         navigate('/cart');
       }
-    } catch (error) {
-      console.error('Error fetching cart:', error);
+    } catch (err) {
+      console.error('Error fetching cart:', err);
     } finally {
       setLoading(false);
     }
@@ -43,82 +45,161 @@ const Checkout = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     setSubmitting(true);
 
     try {
       const response = await axios.post('/api/orders', {
         shippingAddress,
-        paymentMethod
+        paymentMethod,
       });
       navigate(`/order-success/${response.data.id}`);
-    } catch (error) {
-      alert(error.response?.data?.error || 'Failed to place order');
+    } catch (err) {
+      console.error('Checkout error:', err);
+      setError(err.response?.data?.error || 'Failed to place escrow order. Please try again.');
     } finally {
       setSubmitting(false);
     }
   };
 
-  const total = cart.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const total = (cart.items || []).reduce(
+    (sum, item) => sum + (Number(item.price) || 0) * (item.quantity || 1),
+    0
+  );
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8 text-center">
-        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+      <div className="max-w-[1360px] mx-auto px-4 py-16 text-center">
+        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
+        <p className="mt-4 font-body-md text-on-surface-variant">
+          Preparing secure checkout session...
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-8">Checkout</h1>
+    <div className="max-w-[1360px] mx-auto px-4 md:px-margin py-space-md pb-space-xl">
+      {/* Header */}
+      <div className="pb-space-sm border-b border-outline-variant/20 mb-space-md flex flex-col md:flex-row md:items-center justify-between gap-2">
+        <div>
+          <div className="flex items-center gap-1.5 font-label-sm text-on-surface-variant mb-1">
+            <Link to="/cart" className="hover:text-primary transition-colors">
+              Cart
+            </Link>
+            <span className="material-symbols-outlined text-[14px]">chevron_right</span>
+            <span className="text-primary font-semibold">Escrow Checkout</span>
+          </div>
+          <h1 className="font-headline-lg text-on-surface">Secure Escrow Checkout</h1>
+        </div>
 
-      <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-6">
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">Shipping Address</h2>
-            <div className="space-y-4">
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low shadow-2xs self-start md:self-auto">
+          <span className="material-symbols-outlined text-[18px] text-tertiary-container">
+            lock
+          </span>
+          <span className="font-label-sm text-on-surface">256-bit Encrypted Session</span>
+        </div>
+      </div>
+
+      {error && (
+        <div className="mb-6 p-4 rounded-xl bg-error-container text-on-error-container font-body-md flex items-center gap-2">
+          <span className="material-symbols-outlined text-[20px]">error</span>
+          <span>{error}</span>
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+        {/* Left Form (8 Cols) */}
+        <div className="lg:col-span-8 flex flex-col gap-space-md">
+          {/* Section 1: Handoff Location / Shipping Address */}
+          <div className="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm border border-outline-variant/20 space-y-4">
+            <div className="flex items-center gap-2 text-primary">
+              <span className="material-symbols-outlined text-[24px]">pin_drop</span>
+              <h2 className="font-headline-sm text-on-surface">
+                Campus Handoff & Shipping Details
+              </h2>
+            </div>
+
+            <div>
+              <label className="font-label-md text-on-surface font-semibold block mb-1">
+                Preferred Campus Safe Meeting Spot *
+              </label>
+              <select
+                value={shippingAddress.campusLocation}
+                onChange={(e) =>
+                  setShippingAddress({ ...shippingAddress, campusLocation: e.target.value })
+                }
+                className="w-full h-11 px-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface font-body-md focus:outline-none focus:ring-2 focus:ring-primary/20"
+              >
+                <option value="Student Union / Central Library">
+                  Central Library Entrance (24/7 Security)
+                </option>
+                <option value="Student Union Building Cafe">
+                  Student Union Hub / Dining Commons
+                </option>
+                <option value="Campus Main Gate Security Booth">
+                  Main Campus Gate Security Booth
+                </option>
+                <option value="Dorm / Hostel Quad">Residence Hall / Hostel Quadrangle</option>
+                <option value="Direct Shipping to Address">
+                  Direct Mail Delivery to Street Address
+                </option>
+              </select>
+            </div>
+
+            <div>
+              <label className="font-label-md text-on-surface font-semibold block mb-1">
+                Street Address / Room / Department *
+              </label>
+              <input
+                type="text"
+                required
+                value={shippingAddress.street}
+                onChange={(e) =>
+                  setShippingAddress({ ...shippingAddress, street: e.target.value })
+                }
+                placeholder="e.g. Room 304, Hall 4, West Campus"
+                className="w-full h-11 px-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface font-body-md focus:outline-none focus:ring-2 focus:ring-primary/20"
+              />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Street Address
+                <label className="font-label-md text-on-surface font-semibold block mb-1">
+                  City *
                 </label>
                 <input
                   type="text"
                   required
-                  value={shippingAddress.street}
+                  value={shippingAddress.city}
                   onChange={(e) =>
-                    setShippingAddress({ ...shippingAddress, street: e.target.value })
+                    setShippingAddress({ ...shippingAddress, city: e.target.value })
                   }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  placeholder="Campus City"
+                  className="w-full h-11 px-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface font-body-md focus:outline-none focus:ring-2 focus:ring-primary/20"
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">City</label>
-                  <input
-                    type="text"
-                    required
-                    value={shippingAddress.city}
-                    onChange={(e) =>
-                      setShippingAddress({ ...shippingAddress, city: e.target.value })
-                    }
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">State</label>
-                  <input
-                    type="text"
-                    required
-                    value={shippingAddress.state}
-                    onChange={(e) =>
-                      setShippingAddress({ ...shippingAddress, state: e.target.value })
-                    }
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-                  />
-                </div>
-              </div>
+
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
+                <label className="font-label-md text-on-surface font-semibold block mb-1">
+                  State *
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={shippingAddress.state}
+                  onChange={(e) =>
+                    setShippingAddress({ ...shippingAddress, state: e.target.value })
+                  }
+                  placeholder="State"
+                  className="w-full h-11 px-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface font-body-md focus:outline-none focus:ring-2 focus:ring-primary/20"
+                />
+              </div>
+
+              <div>
+                <label className="font-label-md text-on-surface font-semibold block mb-1">
+                  Postal Code *
+                </label>
                 <input
                   type="text"
                   required
@@ -126,103 +207,129 @@ const Checkout = () => {
                   onChange={(e) =>
                     setShippingAddress({ ...shippingAddress, zip: e.target.value })
                   }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Campus Location (Optional)
-                </label>
-                <input
-                  type="text"
-                  value={shippingAddress.campusLocation}
-                  onChange={(e) =>
-                    setShippingAddress({ ...shippingAddress, campusLocation: e.target.value })
-                  }
-                  placeholder="e.g., Dorm Building A, Room 101"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  placeholder="ZIP"
+                  className="w-full h-11 px-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface font-body-md focus:outline-none focus:ring-2 focus:ring-primary/20"
                 />
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">Payment Method</h2>
-            <p className="text-sm text-gray-600 mb-4">
-              Select how you'll pay. Note: Payment is not processed automatically. You'll coordinate with the seller.
-            </p>
-            <div className="space-y-3">
-              <label className="flex items-start space-x-3 cursor-pointer p-3 border rounded-lg hover:bg-gray-50">
+          {/* Section 2: Payment Method */}
+          <div className="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm border border-outline-variant/20 space-y-4">
+            <div className="flex items-center gap-2 text-primary">
+              <span className="material-symbols-outlined text-[24px]">credit_card</span>
+              <h2 className="font-headline-sm text-on-surface">Escrow Payment Method</h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label
+                onClick={() => setPaymentMethod('cash')}
+                className={`p-4 rounded-xl border cursor-pointer transition-all flex items-start gap-3 ${
+                  paymentMethod === 'cash'
+                    ? 'border-primary bg-primary/5 shadow-2xs'
+                    : 'border-outline-variant/30 bg-surface-container-lowest hover:bg-surface-container-low'
+                }`}
+              >
                 <input
                   type="radio"
                   name="payment"
-                  value="cash"
                   checked={paymentMethod === 'cash'}
-                  onChange={(e) => setPaymentMethod(e.target.value)}
-                  className="w-5 h-5 text-primary-600 mt-1"
+                  onChange={() => setPaymentMethod('cash')}
+                  className="mt-1 text-primary accent-primary"
                 />
                 <div>
-                  <span className="text-gray-700 font-medium">Cash on Delivery / Pickup</span>
-                  <p className="text-xs text-gray-500 mt-1">Pay in cash when you meet the seller</p>
+                  <p className="font-label-md text-on-surface font-semibold flex items-center gap-1.5">
+                    <span className="material-symbols-outlined text-[18px] text-tertiary">
+                      payments
+                    </span>
+                    <span>Cash on Safe Meetup</span>
+                  </p>
+                  <p className="font-body-sm text-on-surface-variant text-xs mt-1">
+                    Pay in person after physically inspecting the item at the verified meetup zone.
+                  </p>
                 </div>
               </label>
-              <label className="flex items-start space-x-3 cursor-pointer p-3 border rounded-lg hover:bg-gray-50">
+
+              <label
+                onClick={() => setPaymentMethod('card')}
+                className={`p-4 rounded-xl border cursor-pointer transition-all flex items-start gap-3 ${
+                  paymentMethod === 'card'
+                    ? 'border-primary bg-primary/5 shadow-2xs'
+                    : 'border-outline-variant/30 bg-surface-container-lowest hover:bg-surface-container-low'
+                }`}
+              >
                 <input
                   type="radio"
                   name="payment"
-                  value="venmo"
-                  checked={paymentMethod === 'venmo'}
-                  onChange={(e) => setPaymentMethod(e.target.value)}
-                  className="w-5 h-5 text-primary-600 mt-1"
+                  checked={paymentMethod === 'card'}
+                  onChange={() => setPaymentMethod('card')}
+                  className="mt-1 text-primary accent-primary"
                 />
                 <div>
-                  <span className="text-gray-700 font-medium">Venmo</span>
-                  <p className="text-xs text-gray-500 mt-1">Send payment via Venmo app</p>
-                </div>
-              </label>
-              <label className="flex items-start space-x-3 cursor-pointer p-3 border rounded-lg hover:bg-gray-50">
-                <input
-                  type="radio"
-                  name="payment"
-                  value="paypal"
-                  checked={paymentMethod === 'paypal'}
-                  onChange={(e) => setPaymentMethod(e.target.value)}
-                  className="w-5 h-5 text-primary-600 mt-1"
-                />
-                <div>
-                  <span className="text-gray-700 font-medium">PayPal</span>
-                  <p className="text-xs text-gray-500 mt-1">Send payment via PayPal</p>
+                  <p className="font-label-md text-on-surface font-semibold flex items-center gap-1.5">
+                    <span className="material-symbols-outlined text-[18px] text-primary">
+                      credit_card
+                    </span>
+                    <span>Digital Escrow Holding</span>
+                  </p>
+                  <p className="font-body-sm text-on-surface-variant text-xs mt-1">
+                    Protected online transfer. Funds remain locked until you confirm acceptance.
+                  </p>
                 </div>
               </label>
             </div>
           </div>
         </div>
 
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-lg shadow-md p-6 sticky top-24">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">Order Summary</h2>
-            <div className="space-y-2 mb-4">
-              {cart.items.map((item) => (
-                <div key={item.productId} className="flex justify-between text-sm text-gray-600">
-                  <span>{item.name} x{item.quantity}</span>
-                  <span>{formatINR(item.price * item.quantity)}</span>
-                </div>
-              ))}
-              <div className="border-t pt-2 mt-2">
-                <div className="flex justify-between text-xl font-bold text-gray-800">
-                  <span>Total</span>
-                  <span>{formatINR(total)}</span>
-                </div>
+        {/* Right Summary (4 Cols) */}
+        <div className="lg:col-span-4 bg-surface-container-lowest rounded-2xl p-space-md shadow-md border border-outline-variant/20 flex flex-col gap-4 sticky top-32">
+          <h3 className="font-headline-sm text-on-surface">Order Summary</h3>
+
+          {/* Items mini list */}
+          <div className="max-h-48 overflow-y-auto space-y-2 border-b border-outline-variant/20 pb-3">
+            {cart.items.map((item) => (
+              <div key={item.productId} className="flex items-center justify-between text-xs">
+                <span className="truncate max-w-[180px] font-body-sm text-on-surface">
+                  {item.quantity}x {item.name}
+                </span>
+                <span className="font-semibold text-on-surface">
+                  {formatINR(Number(item.price) * item.quantity)}
+                </span>
               </div>
-            </div>
-            <button
-              type="submit"
-              disabled={submitting}
-              className="w-full bg-primary-600 text-white py-3 rounded-lg hover:bg-primary-700 transition font-semibold disabled:opacity-50"
-            >
-              {submitting ? 'Placing Order...' : 'Place Order'}
-            </button>
+            ))}
           </div>
+
+          <div className="space-y-2 font-body-md text-on-surface-variant text-sm">
+            <div className="flex justify-between">
+              <span>Items Total</span>
+              <span className="font-semibold text-on-surface">{formatINR(total)}</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Escrow Service Fee</span>
+              <span className="text-tertiary-container font-semibold">Free (0%)</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Local Tax</span>
+              <span className="text-on-surface font-semibold">₹0.00</span>
+            </div>
+            <div className="border-t border-outline-variant/20 pt-2 flex justify-between font-headline-md text-on-surface font-bold text-lg">
+              <span>Total</span>
+              <span className="text-primary">{formatINR(total)}</span>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            disabled={submitting}
+            className="w-full h-12 bg-primary hover:bg-primary-container text-on-primary rounded-xl font-label-lg font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-2 disabled:opacity-50 active:scale-[0.99]"
+          >
+            <span>{submitting ? 'Confirming Escrow...' : 'Place Escrow Order'}</span>
+            <span className="material-symbols-outlined text-[18px]">verified</span>
+          </button>
+
+          <p className="font-body-sm text-on-surface-variant text-center text-xs">
+            By placing this order, you agree to the TradeHub Peer Escrow Safety Guidelines.
+          </p>
         </div>
       </form>
     </div>
@@ -230,4 +337,3 @@ const Checkout = () => {
 };
 
 export default Checkout;
-

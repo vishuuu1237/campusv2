@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-tint":"#5148d7","secondary-fixed-dim":"#ffb95f","on-tertiary-fixed":"#00201d","surface-container-high":"#dce9ff","surface":"#f8f9ff","on-secondary":"#ffffff","on-error":"#ffffff","on-primary":"#ffffff","on-secondary-fixed-variant":"#653e00","primary-fixed":"#e3dfff","outline":"#777586","secondary-fixed":"#ffddb8","surface-bright":"#f8f9ff","tertiary-fixed":"#89f5e7","surface-variant":"#d3e4fe","surface-container-low":"#eff4ff","primary-container":"#4338ca","on-primary-container":"#c1beff","on-tertiary-container":"#69d6c9","on-tertiary":"#ffffff","surface-container-highest":"#d3e4fe","on-error-container":"#93000a","tertiary-fixed-dim":"#6bd8cb","surface-container":"#e5eeff","primary-fixed-dim":"#c3c0ff","on-surface-variant":"#464554","on-surface":"#0b1c30","secondary":"#855300","surface-container-lowest":"#ffffff","on-secondary-fixed":"#2a1700","secondary-container":"#fea619","inverse-primary":"#c3c0ff","error":"#ba1a1a","error-container":"#ffdad6","tertiary-container":"#005c54","surface-dim":"#cbdbf5","on-background":"#0b1c30","tertiary":"#00423c","inverse-on-surface":"#eaf1ff","primary":"#2a14b4","background":"#f8f9ff","inverse-surface":"#213145","on-primary-fixed-variant":"#372abf","on-secondary-container":"#684000","on-tertiary-fixed-variant":"#005049","on-primary-fixed":"#100069","outline-variant":"#c7c4d7"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"2.5rem","space-md":"1rem","space-xl":"2rem","gutter-compact":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter":"1.5rem","margin-compact":"1.5rem"},"fontFamily":{"label-lg":["Inter"],"body-md":["Inter"],"label-sm":["Inter"],"display-md":["Plus Jakarta Sans"],"label-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"display-lg":["Plus Jakarta Sans"],"body-sm":["Inter"]},"fontSize":{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"600"}],"display-md":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"800"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 w-full"><div class="h-16 max-w-[1360px] mx-auto px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md shrink-0"><img alt="TradeHub Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X1sxbtvVxKrC_YHKTakqXzoxijwALawB7LHNnb58jNZlFzCORu2fumPHwI7c2OBsBqq_iwa60fuLGGw-F4iHMyav1bhvNmOsu-lOqLf5yVWQlHjMBz9qgrHgqH1FksqZ18p4DGocd3qs586xceHp_3C61SZGJSkY-1_Vf9IWt1Xjcc5Gd3Et_Pjk0e_QaVMQLeYJv6CM4PVcvH2Y860btGFIQreioB66dYED2g0ZVjSsutAUOxP2DsRdE"/><span class="font-headline-md text-headline-md text-primary tracking-tight">TradeHub</span></div><div class="flex-1 max-w-2xl"><div class="flex items-center h-11 bg-surface-container-low rounded-lg px-space-sm gap-space-xs"><div class="relative flex items-center shrink-0"><select class="appearance-none bg-transparent font-label-md text-label-md text-on-surface-variant pr-space-lg pl-space-xs focus:outline-none cursor-pointer"><option>All Categories</option><option>Electronics</option><option>Cameras &amp; Audio</option><option>Furniture</option><option>Collectibles</option><option>Gaming</option><option>Fashion</option></select><span class="material-symbols-outlined absolute right-0 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span></div><div class="h-5 w-[1px] bg-outline-variant shrink-0 mx-space-xs"></div><span class="material-symbols-outlined text-on-surface-variant shrink-0">search</span><input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none px-space-xs" placeholder="Search verified items, brands, or local sellers..." type="text"/><div class="hidden sm:flex items-center shrink-0 px-space-xs py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant">⌘K</div></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg"><a class="px-space-sm py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="browse-marketplace" href="#">Browse</a><a class="px-space-sm py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="seller-dashboard" href="#">Sell an Item</a><a class="px-space-sm py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="favorites" href="#">Favorites</a><a class="px-space-sm py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="messages" href="#">Inbox</a></nav><div class="flex items-center gap-space-sm shrink-0"><a class="flex items-center gap-1.5 h-10 px-space-md rounded-lg bg-primary font-label-lg text-label-lg text-on-primary hover:bg-primary-container hover:text-on-primary transition-all shadow-[0_1px_3px_0_rgba(15,23,42,0.05)]" data-path="create-listing" href="#"><span class="material-symbols-outlined text-[18px]">add_circle</span><span>Post Listing</span></a><button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary-container"></span></button><div class="relative flex items-center pl-space-xs"><button aria-label="User menu" class="flex items-center gap-space-xs rounded-full p-0.5 focus:outline-none"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBglD9nIKE-rKE6I4aINBJNjPxW_wCOGxXY-arxgqJZZHh6nq609G2ZK6x2jOHghLcih0PGxJ6LnrlBXBw9Ktw-O9JYPtjmssMIrgzpmByzRVoyr0QIOm9JgK9A0IfKiRmB53yWhxTy-E70UapmAa_7RwjDdrTxUzY09Z-gYG6wRVLpRTRr5_h02m8vGrvUX1iMThlC4ywu8k7sQg7aH6XDztDcLXeSrjfysPVOJsSIYs4iMdRhBVTt"/><span class="material-symbols-outlined text-on-surface-variant text-[18px]">keyboard_arrow_down</span></button></div></div></div><div class="h-12 max-w-[1360px] mx-auto px-margin flex items-center justify-between overflow-x-auto gap-space-sm"><div class="flex items-center gap-space-xs shrink-0"><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-high text-primary hover:bg-primary-container hover:text-on-primary transition-colors" data-path="browse-marketplace" href="#">All</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-electronics" href="#">Electronics</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-cameras-audio" href="#">Cameras &amp; Audio</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-furniture" href="#">Furniture</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-collectibles" href="#">Collectibles</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-gaming" href="#">Gaming</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="category-fashion" href="#">Fashion</a></div><div class="hidden lg:flex items-center gap-space-md shrink-0 font-label-sm text-label-sm text-on-surface-variant"><span class="flex items-center gap-1 text-tertiary-container"><span class="material-symbols-outlined text-[16px]">verified_user</span>Escrow Secured</span><span class="flex items-center gap-1 text-secondary"><span class="material-symbols-outlined text-[16px]">bolt</span>Same-day Handoffs</span></div></div></div></header><main class="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)]"><div class="flex flex-col w-full">
+<!-- Interactive Form Controller Script -->
+<script>
+    function updateCharCount(val) {
+      const counter = document.getElementById('title-char-counter');
+      if (counter) counter.innerText = `${val.length}/80`;
+    }
+
+    function toggleOfferSwitch() {
+      const toggle = document.getElementById('offers-toggle');
+      const knob = document.getElementById('offers-knob');
+      const hiddenInput = document.getElementById('offers-negotiable-input');
+      const isActive = toggle.getAttribute('data-active') === 'true';
+      
+      if (isActive) {
+        toggle.setAttribute('data-active', 'false');
+        toggle.classList.remove('bg-primary');
+        toggle.classList.add('bg-surface-container-highest');
+        knob.classList.remove('translate-x-5');
+        knob.classList.add('translate-x-0.5');
+        if (hiddenInput) hiddenInput.value = 'false';
+      } else {
+        toggle.setAttribute('data-active', 'true');
+        toggle.classList.remove('bg-surface-container-highest');
+        toggle.classList.add('bg-primary');
+        knob.classList.remove('translate-x-0.5');
+        knob.classList.add('translate-x-5');
+        if (hiddenInput) hiddenInput.value = 'true';
+      }
+    }
+
+    function selectCondition(element) {
+      document.querySelectorAll('.condition-option').forEach(card => {
+        card.classList.remove('bg-primary-container/10', 'shadow-md');
+        card.classList.add('bg-surface-container-lowest');
+        const circle = card.querySelector('.radio-indicator');
+        if (circle) {
+          circle.classList.remove('bg-primary');
+          circle.classList.add('bg-surface-container-high');
+        }
+      });
+      element.classList.remove('bg-surface-container-lowest');
+      element.classList.add('bg-primary-container/10', 'shadow-md');
+      const indicator = element.querySelector('.radio-indicator');
+      if (indicator) {
+        indicator.classList.remove('bg-surface-container-high');
+        indicator.classList.add('bg-primary');
+      }
+    }
+
+    function togglePickupOptions(checked) {
+      const panel = document.getElementById('safe-pickup-panel');
+      if (panel) {
+        if (checked) {
+          panel.classList.remove('hidden');
+        } else {
+          panel.classList.add('hidden');
+        }
+      }
+    }
+
+    function toggleShippingOptions(checked) {
+      const panel = document.getElementById('shipping-details-panel');
+      if (panel) {
+        if (checked) {
+          panel.classList.remove('hidden');
+        } else {
+          panel.classList.add('hidden');
+        }
+      }
+    }
+
+    function formatDoc(command) {
+      document.execCommand(command, false, null);
+      const editor = document.getElementById('editor-content');
+      if (editor) editor.focus();
+    }
+
+    function removePhoto(id) {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    }
+  </script>
+<!-- Main Multi-step Page Body -->
+<div class="max-w-[1360px] w-full mx-auto px-margin-compact lg:px-margin pb-space-xl">
+<!-- Top Action Breadcrumb & Title Area -->
+<div class="py-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Marketplace</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Sell</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">New Listing</span>
+</div>
+<h1 class="font-display-md text-display-md text-on-surface tracking-tight">Create a New Listing</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Reach verified buyers locally or ship securely with TradeHub buyer protection.</p>
+</div>
+<!-- Quick Status Badge -->
+<div class="flex items-center gap-space-sm shrink-0 self-start md:self-auto">
+<div class="flex items-center gap-2 px-space-md py-2 rounded-xl bg-surface-container-low shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface">Auto-saved 2m ago</span>
+</div>
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high font-label-md text-label-md text-on-surface hover:bg-surface-variant transition-colors">
+          Preview
+        </button>
+</div>
+</div>
+<!-- Stepper Navigation Bar -->
+<div class="mb-space-lg bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-space-sm">
+<!-- Step 1 (Active) -->
+<div class="flex items-center gap-space-sm p-space-xs">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center shrink-0 shadow-sm">
+            1
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary truncate">1. Photos &amp; Video</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Visual verification</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-center gap-space-sm p-space-xs">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg flex items-center justify-center shrink-0">
+            2
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">2. Item Details</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Title, specs &amp; state</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-center gap-space-sm p-space-xs">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg flex items-center justify-center shrink-0">
+            3
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">3. Pricing &amp; Shipping</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Rates &amp; fulfillment</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex items-center gap-space-sm p-space-xs">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg flex items-center justify-center shrink-0">
+            4
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">4. Review</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Final audit &amp; publish</span>
+</div>
+</div>
+</div>
+<!-- Linear progress track -->
+<div class="w-full bg-surface-container-low h-1.5 rounded-full mt-space-sm overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 25%;"></div>
+</div>
+</div>
+<!-- Main Workspace Grid: 8-col Form + 4-col Guidance Sidebar -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Primary Form Canvas (8 cols) -->
+<form class="lg:col-span-8 flex flex-col gap-space-lg" onsubmit="event.preventDefault();">
+<!-- SECTION 1: Media Upload Zone -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[24px]">add_photo_alternate</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Photos &amp; Media</h2>
+</div>
+<span class="font-label-md text-label-md text-primary bg-primary-fixed/60 px-2.5 py-1 rounded-full">
+              3 of 10 Uploaded
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Authentic photos build instant confidence. Natural daylight and multi-angle photos get up to 3x more offers.
+          </p>
+<!-- Dropzone Container -->
+<div class="relative bg-surface-container-low/70 rounded-xl p-space-xl flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-container-high/60 transition-all duration-200 group">
+<input class="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10" multiple="" type="file"/>
+<div class="w-16 h-16 rounded-2xl bg-surface-container-lowest shadow-md flex items-center justify-center mb-space-sm text-primary group-hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined text-[32px]">cloud_upload</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface mb-1">
+              Drag &amp; drop high-resolution photos or <span class="text-primary underline font-bold">browse</span>
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
+              Supports JPEG, PNG, WEBP, or RAW clips up to 25MB each. First picture will automatically become your catalog hero image.
+            </p>
+</div>
+<!-- Upload Status Indicator -->
+<div class="flex flex-col gap-1.5 p-space-sm bg-surface-container-low rounded-lg">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">check_circle</span>
+<span>Batch Upload Status</span>
+</span>
+<span class="text-tertiary-container font-semibold">100% - Ready</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary-container h-full rounded-full w-full"></div>
+</div>
+</div>
+<!-- Thumbnail Previews Gallery -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md pt-space-xs">
+<!-- Thumbnail 1 (Cover) -->
+<div class="relative group rounded-xl overflow-hidden shadow-sm bg-surface-container-low flex flex-col" id="thumb-1">
+<div class="relative w-full aspect-square overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Professional crisp studio photo of a Sony Alpha A7 III full frame mirrorless camera body angled facing forward with lens mount exposed on clean neutral background with subtle soft studio highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNNsFAvmnXE77-FI0E6SqK5yy-XVAZJHqpfgbqn237dxfNNBCjtOujaMeyK6lLKWDe5jjY1h7A6np4sB4NIJJzT1iFVmDMcmn61w3K98Ez9_bxUKpzXRhw54ss4KDr8wruGVN_dP2voANTZJDxTBg6qXRvG7uY7YJybzra9Hk7ZdqW23jWhwX83fyJm-_GRTXHng6OPH7aaoLXAyMh4gna1PsvgcvLUUn8Ok2w7vsAcpPHU02cIx6l"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm shadow-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">star</span> Cover Photo
+                </span>
+<div class="absolute inset-0 bg-on-surface/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="w-9 h-9 rounded-full bg-surface-container-lowest text-on-surface hover:text-primary flex items-center justify-center shadow-lg transition-colors" title="Rotate image" type="button">
+<span class="material-symbols-outlined text-[18px]">rotate_right</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-error text-on-error flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity" onclick="removePhoto('thumb-1')" title="Delete image" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<div class="p-2.5 bg-surface-container-lowest flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">front_body_4k.jpg</span>
+<span class="font-label-sm text-label-sm text-tertiary-container">Main</span>
+</div>
+</div>
+<!-- Thumbnail 2 -->
+<div class="relative group rounded-xl overflow-hidden shadow-sm bg-surface-container-low flex flex-col" id="thumb-2">
+<div class="relative w-full aspect-square overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Close up detailed photo of rear LCD screen and physical control dials of a Sony Alpha A7 camera pristine condition without scratches or dust under soft diffused light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9I5PDf1fha1EIb-fCJYspBEXVMmxiMnbTgSp_yn2rGZ5HxFkufoypkF3CbDBTIGFxCLcDfVD3sr25vghkMAo8XLZ2NHkeRqKRDfCyVR5RhaHwQj1KhGKFBkHOZ3wdprn6eQWr4LHPqmdGplqmyfgwTmzOozi7rpQG7yKYRqZ2wi7Xgtv69yrkr7VGi8xodACeRAaTmslImdfCXc8-hp1HqFsm2gI_KBq-fJtQsryHxDnr2ZIA3u-f"/>
+<div class="absolute inset-0 bg-on-surface/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="px-2.5 py-1.5 rounded-lg bg-surface-container-lowest text-primary font-label-sm text-label-sm shadow-lg hover:bg-surface-variant transition-colors" type="button">
+                    Set as Cover
+                  </button>
+<button class="w-9 h-9 rounded-full bg-surface-container-lowest text-on-surface hover:text-primary flex items-center justify-center shadow-lg transition-colors" title="Rotate image" type="button">
+<span class="material-symbols-outlined text-[18px]">rotate_right</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-error text-on-error flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity" onclick="removePhoto('thumb-2')" title="Delete image" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<div class="p-2.5 bg-surface-container-lowest flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">rear_controls.jpg</span>
+<button class="font-label-sm text-label-sm text-primary hover:underline" type="button">Set Cover</button>
+</div>
+</div>
+<!-- Thumbnail 3 -->
+<div class="relative group rounded-xl overflow-hidden shadow-sm bg-surface-container-low flex flex-col" id="thumb-3">
+<div class="relative w-full aspect-square overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Overhead angle photo showing camera body accompanied by original retail box two rechargeable batteries charging dock and neck strap arranged neatly on slate textured desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfj_gzw8bYF1tMFkGB0QkXEvG7dLHOJmxOm3TWLMomOjEO8bHoFrEmzMgKO__yb9PHtslNrRWgbzAcnkNE4SivfIyfciTlJwGQ53ZSliEVtrluKmpVqdCbA20pqpjqOI0ujV3wDCx_NW7RFrrL4kKTKHflAOXNB2RAQpfTNzexEjgnv84H8QYbqiAVasbnX5knx-DAzLoud9opB5biCNffndtW2RXYuvAIAvtg7iMFFoAWeXnLhfKr"/>
+<div class="absolute inset-0 bg-on-surface/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="px-2.5 py-1.5 rounded-lg bg-surface-container-lowest text-primary font-label-sm text-label-sm shadow-lg hover:bg-surface-variant transition-colors" type="button">
+                    Set as Cover
+                  </button>
+<button class="w-9 h-9 rounded-full bg-surface-container-lowest text-on-surface hover:text-primary flex items-center justify-center shadow-lg transition-colors" title="Rotate image" type="button">
+<span class="material-symbols-outlined text-[18px]">rotate_right</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-error text-on-error flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity" onclick="removePhoto('thumb-3')" title="Delete image" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<div class="p-2.5 bg-surface-container-lowest flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">accessories_bundle.jpg</span>
+<button class="font-label-sm text-label-sm text-primary hover:underline" type="button">Set Cover</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Item Basics -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[24px]">inventory_2</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Item Basics</h2>
+</div>
+<!-- Listing Title Input -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface" for="listing-title">Listing Title *</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="title-char-counter">52/80</span>
+</div>
+<input class="w-full h-12 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all" id="listing-title" maxlength="80" oninput="updateCharCount(this.value)" placeholder="e.g., Apple MacBook Pro 16' M3 Max 32GB RAM Space Black" type="text" value="Sony Alpha A7 III Full Frame Mirrorless Camera Body"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Include brand, model, key technical specifications, and color.</span>
+</div>
+<!-- Category & Subcategory Selectors -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="category-select">Primary Category *</label>
+<div class="relative flex items-center">
+<select class="w-full h-11 px-space-md appearance-none rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-container-lowest focus:shadow-md cursor-pointer pr-10 transition-all" id="category-select">
+<option selected="">Cameras &amp; Photo</option>
+<option>Electronics</option>
+<option>Computers &amp; Laptops</option>
+<option>Gaming Gear</option>
+<option>Furniture &amp; Home</option>
+<option>Collectibles &amp; Art</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 pointer-events-none text-on-surface-variant text-[20px]">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="subcategory-select">Subcategory *</label>
+<div class="relative flex items-center">
+<select class="w-full h-11 px-space-md appearance-none rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-container-lowest focus:shadow-md cursor-pointer pr-10 transition-all" id="subcategory-select">
+<option selected="">Digital Cameras - Mirrorless Bodies</option>
+<option>Digital Cameras - DSLRs</option>
+<option>Camera Lenses &amp; Filters</option>
+<option>Tripods &amp; Stabilizers</option>
+<option>Lighting &amp; Studio Equipment</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 pointer-events-none text-on-surface-variant text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Condition Radio Card Group -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<label class="font-label-md text-label-md text-on-surface">Item Condition *</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm">
+<!-- Condition 1 -->
+<div class="condition-option cursor-pointer p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all flex flex-col gap-2" onclick="selectCondition(this)">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Brand New</span>
+<div class="radio-indicator w-4 h-4 rounded-full bg-surface-container-high transition-colors"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Factory sealed in original retail box, never used.</p>
+</div>
+<!-- Condition 2 (Selected default) -->
+<div class="condition-option cursor-pointer p-space-sm rounded-xl bg-primary-container/10 shadow-md transition-all flex flex-col gap-2" onclick="selectCondition(this)">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold">Like New</span>
+<div class="radio-indicator w-4 h-4 rounded-full bg-primary transition-colors"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Flawless cosmetic state. Zero signs of wear or scratches.</p>
+</div>
+<!-- Condition 3 -->
+<div class="condition-option cursor-pointer p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all flex flex-col gap-2" onclick="selectCondition(this)">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Good</span>
+<div class="radio-indicator w-4 h-4 rounded-full bg-surface-container-high transition-colors"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Minor cosmetic micro-scuffs. 100% operational.</p>
+</div>
+<!-- Condition 4 -->
+<div class="condition-option cursor-pointer p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all flex flex-col gap-2" onclick="selectCondition(this)">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Fair</span>
+<div class="radio-indicator w-4 h-4 rounded-full bg-surface-container-high transition-colors"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Clear aesthetic marks of normal use, fully functional.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Detailed Description -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[24px]">description</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Detailed Description</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Markdown supported</span>
+</div>
+<!-- Rich Text Formatting Toolbar -->
+<div class="flex flex-col rounded-xl overflow-hidden shadow-sm">
+<div class="bg-surface-container-low px-space-sm py-2 flex flex-wrap items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface transition-colors" onclick="formatDoc('bold')" title="Bold" type="button">
+<span class="material-symbols-outlined text-[18px]">format_bold</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface transition-colors" onclick="formatDoc('italic')" title="Italic" type="button">
+<span class="material-symbols-outlined text-[18px]">format_italic</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface transition-colors" onclick="formatDoc('underline')" title="Underline" type="button">
+<span class="material-symbols-outlined text-[18px]">format_underlined</span>
+</button>
+<div class="w-[1px] h-4 bg-outline-variant mx-1"></div>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface transition-colors" onclick="formatDoc('insertUnorderedList')" title="Bullet List" type="button">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface transition-colors" onclick="formatDoc('insertOrderedList')" title="Numbered List" type="button">
+<span class="material-symbols-outlined text-[18px]">format_list_numbered</span>
+</button>
+<div class="w-[1px] h-4 bg-outline-variant mx-1"></div>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface transition-colors" onclick="formatDoc('justifyLeft')" title="Align Left" type="button">
+<span class="material-symbols-outlined text-[18px]">format_align_left</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface transition-colors" onclick="formatDoc('justifyCenter')" title="Align Center" type="button">
+<span class="material-symbols-outlined text-[18px]">format_align_center</span>
+</button>
+<div class="w-[1px] h-4 bg-outline-variant mx-1"></div>
+<button class="px-2 py-1 rounded hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+<span>AI Enhance</span>
+</button>
+</div>
+<!-- Formatted Editor Container -->
+<div class="min-h-[180px] p-space-md bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-bright leading-relaxed" contenteditable="true" id="editor-content">Selling my cherished Sony A7 III mirrorless body. Used primarily in-studio for tabletop product videography. 
+<br/><br/>
+<strong>Package highlights:</strong>
+<ul>
+<li>Shutter count strictly under 4,200 actuations (rated for 200k+)</li>
+<li>Sensor cleaned and inspected by certified camera technician on Sept 14th</li>
+<li>Includes 2 OEM Sony NP-FZ100 high-capacity batteries &amp; dual USB-C charger</li>
+<li>Clean sensor, zero dead pixels, tempered glass LCD screen protector installed on day one</li>
+</ul>
+<br/>
+Reason for sale: Upgraded to Sony FX3 cinema setup. Comes from a non-smoking, pet-free studio. Original box and packaging included.</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>Tip: Clearly state accessories included, warranty status, and reason for selling.</span>
+<span>485 words</span>
+</div>
+</section>
+<!-- SECTION 4: Pricing & Transaction Preferences -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[24px]">payments</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Pricing &amp; Shipping</h2>
+</div>
+<!-- Price Input & Dynamic Recommendation Gauge -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md items-center">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="price-input">Listing Price (USD) *</label>
+<div class="relative flex items-center">
+<span class="absolute left-4 font-headline-md text-headline-md text-on-surface-variant select-none">$</span>
+<input class="w-full h-14 pl-10 pr-4 rounded-xl bg-surface-container-low text-primary font-display-md text-headline-lg focus:outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all" id="price-input" type="number" value="1180"/>
+</div>
+</div>
+<!-- Smart Market Gauge Box -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">insights</span>
+                  TradeHub Market Intelligence
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">High Demand</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface">
+                Recommended: <span class="text-primary font-bold">$1,100 - $1,250</span>
+</p>
+<div class="flex items-center gap-2">
+<div class="flex-1 bg-surface-container-high h-2 rounded-full overflow-hidden flex">
+<div class="w-1/4 bg-secondary-fixed-dim"></div>
+<div class="w-1/2 bg-tertiary-container"></div>
+<div class="w-1/4 bg-error-container"></div>
+</div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Based on 28 verified sales of identical camera models in the past 30 days.</span>
+</div>
+</div>
+<!-- Accept Offers Switch -->
+<div class="flex items-center justify-between p-space-md rounded-xl bg-surface-container-low">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-lg text-label-lg text-on-surface">Accept Offers / Negotiable</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Permit serious buyers to submit formal binding offers through TradeHub Escrow.</span>
+</div>
+<button class="w-12 h-7 rounded-full bg-primary relative transition-colors duration-200 cursor-pointer shrink-0" data-active="true" id="offers-toggle" onclick="toggleOfferSwitch()" type="button">
+<div class="w-6 h-6 rounded-full bg-surface-container-lowest shadow-md transform translate-x-5 transition-transform duration-200" id="offers-knob"></div>
+</button>
+<input id="offers-negotiable-input" type="hidden" value="true"/>
+</div>
+<!-- Delivery Methods -->
+<div class="flex flex-col gap-space-sm">
+<label class="font-label-md text-label-md text-on-surface">Fulfillment &amp; Delivery Methods</label>
+<!-- Option 1: Local Pickup -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<label class="flex items-start gap-space-xs cursor-pointer select-none">
+<input checked="" class="mt-1 w-5 h-5 rounded text-primary focus:ring-0 accent-primary cursor-pointer" onchange="togglePickupOptions(this.checked)" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Local Pickup (Safe Exchange)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Coordinate verified in-person handoffs with identity-checked members.</span>
+</div>
+</label>
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-primary">No Shipping Fee</span>
+</div>
+<!-- Safe Exchange Zone Selector -->
+<div class="pt-space-xs flex flex-col gap-2" id="safe-pickup-panel">
+<span class="font-label-sm text-label-sm text-tertiary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified_user</span> Recommended Safe Meeting Hub
+                </span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-container text-[20px]">local_police</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Police Station Lobby (West precinct)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">0.8 miles away • 24/7 monitored</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex items-center justify-between cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">store</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Metro Center Public Mall Plaza</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1.4 miles away • High foot traffic</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Option 2: TradeHub Insured Shipping -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<label class="flex items-start gap-space-xs cursor-pointer select-none">
+<input checked="" class="mt-1 w-5 h-5 rounded text-primary focus:ring-0 accent-primary cursor-pointer" onchange="toggleShippingOptions(this.checked)" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">TradeHub Insured Nationwide Shipping</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Print prepaid labels with full carrier loss and transit damage protection up to $2,500.</span>
+</div>
+</label>
+<span class="px-2 py-0.5 rounded bg-tertiary-container/10 font-label-sm text-label-sm text-tertiary-container font-semibold">Protected</span>
+</div>
+<!-- Package Weight & Dimension Estimator -->
+<div class="pt-space-xs grid grid-cols-1 sm:grid-cols-3 gap-space-sm" id="shipping-details-panel">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Package Weight (lbs)</label>
+<input class="h-10 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none" type="text" value="3.5 lbs"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Box Dimensions (L x W x H)</label>
+<input class="h-10 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none" type="text" value="10 x 8 x 6 in"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Shipping Fee Payer</label>
+<div class="relative flex items-center">
+<select class="w-full h-10 px-3 appearance-none rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none cursor-pointer pr-8">
+<option>Buyer Pays (~$14.20)</option>
+<option>Free Shipping (Seller Pays)</option>
+<option>Split 50 / 50</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: Action Buttons Footer -->
+<div class="p-space-lg bg-surface-container-lowest rounded-xl shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">security</span>
+<span>By publishing, you accept TradeHub’s Seller Code of Conduct &amp; Zero-Counterfeit policy.</span>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto shrink-0 justify-end">
+<button class="w-full sm:w-auto px-space-lg h-12 rounded-lg bg-surface-container-high text-on-surface font-label-lg text-label-lg hover:bg-surface-variant transition-colors" type="button">
+              Save as Draft
+            </button>
+<button class="w-full sm:w-auto px-space-xl h-12 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2" type="submit">
+<span>Publish Listing Now</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</form>
+<!-- Sidebar Guidance Panel: Tips for a fast, safe sale (4 cols) -->
+<aside class="lg:col-span-4 flex flex-col gap-space-md sticky top-32">
+<!-- Trust & Tips Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Tips for a Fast, Safe Sale</h3>
+</div>
+<div class="flex flex-col gap-space-md font-body-md text-body-md text-on-surface">
+<!-- Tip 1 -->
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-container mt-0.5 text-[20px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Shoot in Natural Sunlight</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Bright, neutral daylight highlights true colors and authentic item condition without deceiving filters.</span>
+</div>
+</div>
+<!-- Tip 2 -->
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-container mt-0.5 text-[20px]">verified</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Disclose Any Wear Openly</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sellers who proactively photograph micro-scratches experience 94% fewer disputes and faster rating clearances.</span>
+</div>
+</div>
+<!-- Tip 3 -->
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-container mt-0.5 text-[20px]">price_check</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Price Within Fair Band</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Listings set within ±5% of the recommended valuation algorithm sell on average in under 48 hours.</span>
+</div>
+</div>
+<!-- Tip 4 -->
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-container mt-0.5 text-[20px]">lock</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Never Transact Outside the App</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Keep communications, offers, and payments strictly within TradeHub to maintain $2,500 escrow protection.</span>
+</div>
+</div>
+</div>
+<!-- Escrow Highlight Pill -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[24px]">shield_person</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">Protected by TradeHub Escrow</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Buyer funds held safely until handoff or verified tracking delivery.</span>
+</div>
+</div>
+</div>
+<!-- Seller Performance Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Your Seller Trust Score</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">99.4%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 99.4%;"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">verified</span> Top Rated Merchant
+            </span>
+<span>42 Sales</span>
+</div>
+</div>
+<!-- Need Help Support Box -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[22px]">contact_support</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Need listing assistance?</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Chat with seller support</span>
+</div>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:underline font-semibold" type="button">Get Help</button>
+</div>
+</aside>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl"><div class="max-w-[1360px] mx-auto px-margin pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-lg pb-space-xl"><div class="lg:col-span-2 flex flex-col gap-space-sm pr-space-lg"><div class="flex items-center gap-space-xs"><img alt="TradeHub Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X1sxbtvVxKrC_YHKTakqXzoxijwALawB7LHNnb58jNZlFzCORu2fumPHwI7c2OBsBqq_iwa60fuLGGw-F4iHMyav1bhvNmOsu-lOqLf5yVWQlHjMBz9qgrHgqH1FksqZ18p4DGocd3qs586xceHp_3C61SZGJSkY-1_Vf9IWt1Xjcc5Gd3Et_Pjk0e_QaVMQLeYJv6CM4PVcvH2Y860btGFIQreioB66dYED2g0ZVjSsutAUOxP2DsRdE"/><span class="font-headline-sm text-headline-sm text-primary">TradeHub</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">The peer-to-peer commerce standard connecting verified buyers and trusted sellers with zero-friction escrow security and instant resolution.</p><div class="flex items-center gap-space-sm mt-space-xs"><span class="inline-flex items-center gap-1 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-tertiary-container"><span class="material-symbols-outlined text-[14px]">shield</span>Buyer Guarantee</span><span class="inline-flex items-center gap-1 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-secondary"><span class="material-symbols-outlined text-[14px]">lock</span>Escrow Protected</span></div></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Marketplace</h4><nav class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant"><a class="hover:text-primary transition-colors" data-path="browse-marketplace" href="#">All Listings</a><a class="hover:text-primary transition-colors" data-path="category-electronics" href="#">Electronics Hub</a><a class="hover:text-primary transition-colors" data-path="category-gaming" href="#">Gaming Gear</a><a class="hover:text-primary transition-colors" data-path="category-collectibles" href="#">Rare Collectibles</a></nav></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Safety &amp; Trust</h4><nav class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant"><a class="hover:text-primary transition-colors" data-path="safety-center" href="#">Safety Center</a><a class="hover:text-primary transition-colors" data-path="safety-center" href="#">Escrow Protection</a><a class="hover:text-primary transition-colors" data-path="safety-center" href="#">ID Verification</a><a class="hover:text-primary transition-colors" data-path="safety-center" href="#">Dispute Resolution</a></nav></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Seller Tools</h4><nav class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant"><a class="hover:text-primary transition-colors" data-path="seller-dashboard" href="#">Seller Hub</a><a class="hover:text-primary transition-colors" data-path="create-listing" href="#">Listing Studio</a><a class="hover:text-primary transition-colors" data-path="seller-dashboard" href="#">Fee Schedule</a><a class="hover:text-primary transition-colors" data-path="seller-dashboard" href="#">Seller Verification</a></nav></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><p>© 2024 TradeHub Marketplace, Inc. All rights reserved.</p><div class="flex items-center gap-space-md"><a class="hover:text-on-surface transition-colors" href="#">Terms of Service</a><a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" href="#">Security Disclosures</a></div></div></div></footer></body></html>
