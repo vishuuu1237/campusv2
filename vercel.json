@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "cd frontend && npm install && npm run build",
+  "installCommand": "npm install --prefix ./frontend && npm install --prefix ./backend",
+  "buildCommand": "npm run build --prefix ./frontend",
   "outputDirectory": "frontend/dist",
-  "installCommand": "npm install && npm install --prefix backend",
   "functions": {
     "api/index.js": {
       "runtime": "nodejs20.x",
