@@ -3,6 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { verifyToken } from './auth.js';
+import { createPaymentOrder } from '../services/paymentService.js';
 
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
@@ -74,15 +75,50 @@ router.post('/', verifyToken, async (req, res) => {
       return res.status(400).json({ error: 'Cart is empty' });
     }
 
-    const total = userCart.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const total = userCart.items.reduce((sum, item) => sum + Number(item.price) * (item.quantity || 1), 0);
+
+    const isOnlinePayment = ['card', 'online', 'upi'].includes(paymentMethod);
+    const orderId = Date.now().toString();
+
+    let paymentUrl = null;
+    let paymentStatus = isOnlinePayment ? 'pending' : 'cash_on_delivery';
+
+    if (isOnlinePayment) {
+      const host = req.get('host');
+      const protocol = req.protocol;
+      const origin = req.headers.origin || `${protocol}://${host}`;
+
+      const redirectUrl = `${origin}/order-success/${orderId}`;
+      const webhookUrl = `${protocol}://${host}/api/payment/webhook`;
+
+      try {
+        const paymentResult = await createPaymentOrder({
+          orderId,
+          amount: total,
+          customerMobile: shippingAddress.phone || '9999999999',
+          remark: `Campus Order #${orderId}`,
+          redirectUrl,
+          webhookUrl
+        });
+
+        paymentUrl = paymentResult.paymentUrl;
+      } catch (payErr) {
+        console.error('Failed to create payment session for order:', payErr.message);
+        return res.status(502).json({
+          error: `Payment gateway initialization failed: ${payErr.message}`
+        });
+      }
+    }
 
     const newOrder = {
-      id: Date.now().toString(),
+      id: orderId,
       userId: req.userId,
       items: userCart.items,
       total,
       shippingAddress,
       paymentMethod,
+      paymentStatus,
+      paymentUrl,
       status: 'pending',
       createdAt: new Date().toISOString()
     };

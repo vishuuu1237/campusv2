@@ -10,6 +10,8 @@ const OrderSuccess = () => {
   const { user } = useAuth();
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [verifying, setVerifying] = useState(false);
+  const [verifyMessage, setVerifyMessage] = useState('');
 
   useEffect(() => {
     if (!user) {
@@ -17,19 +19,50 @@ const OrderSuccess = () => {
       return;
     }
     if (id) {
-      fetchOrder();
+      fetchAndVerifyOrder();
     }
   }, [id, user, navigate]);
 
-  const fetchOrder = async () => {
+  const fetchAndVerifyOrder = async () => {
     try {
       setLoading(true);
       const response = await axios.get(`/api/orders/${id}`);
-      setOrder(response.data);
+      const orderData = response.data;
+      setOrder(orderData);
+
+      // If it's an online payment and not yet marked paid, verify with backend
+      if (
+        orderData &&
+        orderData.paymentMethod !== 'cash' &&
+        orderData.paymentStatus !== 'paid'
+      ) {
+        verifyPayment(orderData.id);
+      }
     } catch (error) {
       console.error('Error fetching order:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const verifyPayment = async (orderId) => {
+    try {
+      setVerifying(true);
+      setVerifyMessage('Verifying transaction with payment gateway...');
+      const response = await axios.post('/api/payment/verify', { orderId: orderId || id });
+      if (response.data && response.data.order) {
+        setOrder(response.data.order);
+        if (response.data.status === 'PAID') {
+          setVerifyMessage('Payment verified successfully!');
+        } else {
+          setVerifyMessage('Payment awaiting confirmation.');
+        }
+      }
+    } catch (err) {
+      console.error('Payment verification error:', err);
+      setVerifyMessage('Unable to auto-verify status right now.');
+    } finally {
+      setVerifying(false);
     }
   };
 
@@ -55,23 +88,98 @@ const OrderSuccess = () => {
     );
   }
 
+  const isPaid = order.paymentStatus === 'paid';
+  const isCash = order.paymentMethod === 'cash';
+
   return (
     <div className="max-w-2xl mx-auto px-4 py-space-xl">
       <div className="bg-surface-container-lowest rounded-2xl shadow-xl border border-outline-variant/30 p-6 sm:p-8 text-center space-y-6">
         {/* Success Icon */}
-        <div className="w-16 h-16 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mx-auto shadow-sm">
-          <span className="material-symbols-outlined text-[36px]">verified</span>
+        <div
+          className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto shadow-sm ${
+            isPaid || isCash
+              ? 'bg-tertiary-fixed text-on-tertiary-fixed'
+              : 'bg-secondary-fixed text-on-secondary-fixed'
+          }`}
+        >
+          <span className="material-symbols-outlined text-[36px]">
+            {isPaid || isCash ? 'verified' : 'hourglass_top'}
+          </span>
         </div>
 
         <div>
-          <span className="font-label-sm text-tertiary-container font-semibold uppercase tracking-wider block mb-1">
-            Escrow Holding Established
+          <span
+            className={`font-label-sm font-semibold uppercase tracking-wider block mb-1 ${
+              isPaid
+                ? 'text-tertiary-container'
+                : isCash
+                ? 'text-primary'
+                : 'text-secondary-container'
+            }`}
+          >
+            {isPaid
+              ? 'Payment Verified & Escrow Locked'
+              : isCash
+              ? 'Meetup Escrow Order Confirmed'
+              : 'Escrow Payment Initiated'}
           </span>
-          <h1 className="font-headline-lg text-on-surface">Order Placed Successfully!</h1>
+          <h1 className="font-headline-lg text-on-surface">
+            {isPaid
+              ? 'Payment Successful & Order Placed!'
+              : isCash
+              ? 'Order Placed for Cash Meetup!'
+              : 'Order Placed — Payment Processing'}
+          </h1>
           <p className="font-body-md text-on-surface-variant max-w-md mx-auto mt-1">
-            Your funds are safely held in neutral TradeHub escrow. The seller has been alerted to prepare the handoff.
+            {isPaid
+              ? 'Your funds are securely locked in TradeHub Escrow. The seller has been alerted to prepare the handoff.'
+              : isCash
+              ? 'Prepare exact cash for the meetup. Inspect the item thoroughly before handoff.'
+              : 'Your payment session is pending confirmation. Once verified, escrow will be locked.'}
           </p>
         </div>
+
+        {/* Payment Verification Banner if pending */}
+        {!isCash && (
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20 text-xs">
+            <div className="flex items-center gap-2 text-left">
+              <span className="material-symbols-outlined text-[20px] text-primary">
+                {isPaid ? 'check_circle' : 'security'}
+              </span>
+              <div>
+                <p className="font-semibold text-on-surface">
+                  Payment Status:{' '}
+                  <span className={isPaid ? 'text-tertiary-container font-bold' : 'text-primary font-bold'}>
+                    {isPaid ? 'PAID / SECURED' : 'PENDING GATEWAY CONFIRMATION'}
+                  </span>
+                </p>
+                {verifyMessage && (
+                  <p className="text-on-surface-variant text-[11px] mt-0.5">{verifyMessage}</p>
+                )}
+              </div>
+            </div>
+
+            {!isPaid && (
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => verifyPayment(order.id)}
+                  disabled={verifying}
+                  className="px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-sm font-semibold transition-all disabled:opacity-50"
+                >
+                  {verifying ? 'Checking...' : 'Check Status'}
+                </button>
+                {order.paymentUrl && (
+                  <a
+                    href={order.paymentUrl}
+                    className="px-3 py-1.5 rounded-lg bg-secondary-fixed hover:bg-secondary text-on-secondary-fixed font-label-sm font-semibold transition-all"
+                  >
+                    Open Gateway
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Order Details Dossier */}
         <div className="bg-surface-container-low rounded-2xl p-5 text-left space-y-4 text-xs font-body-sm text-on-surface-variant">
@@ -83,10 +191,9 @@ const OrderSuccess = () => {
               </span>
             </div>
             <div className="text-right">
-              <span className="text-outline block text-[11px]">Handoff Status</span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-semibold">
-                <span className="material-symbols-outlined text-[12px]">schedule</span>
-                Pending Handoff
+              <span className="text-outline block text-[11px]">Payment Method</span>
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface font-semibold capitalize">
+                {order.paymentMethod === 'cash' ? 'Cash on Meetup' : 'Online Escrow (UPI/Gateway)'}
               </span>
             </div>
           </div>
@@ -119,7 +226,9 @@ const OrderSuccess = () => {
               </span>
             </div>
             <div className="text-right">
-              <span className="text-outline block text-[11px]">Total Paid (Escrow)</span>
+              <span className="text-outline block text-[11px]">
+                {isPaid ? 'Total Paid (Escrow)' : 'Total Payable'}
+              </span>
               <span className="font-headline-md text-primary font-bold text-lg">
                 {formatINR(order.total)}
               </span>

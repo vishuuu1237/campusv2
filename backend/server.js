@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import fs from 'fs/promises';
@@ -7,13 +8,14 @@ import authRoutes from './routes/auth.js';
 import productRoutes from './routes/products.js';
 import cartRoutes from './routes/cart.js';
 import orderRoutes from './routes/orders.js';
+import paymentRoutes from './routes/payment.js';
 import startAutoExport from './scripts/auto_export.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 2220;
+const PORT = process.env.PORT || 2210;
 
 // Initialize data directory
 const dataDir = path.join(__dirname, 'data');
@@ -44,6 +46,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/orders', orderRoutes);
+app.use('/api/payment', paymentRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

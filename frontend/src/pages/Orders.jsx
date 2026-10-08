@@ -9,6 +9,7 @@ const Orders = () => {
   const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [verifyingId, setVerifyingId] = useState(null);
 
   useEffect(() => {
     if (!user) {
@@ -28,6 +29,23 @@ const Orders = () => {
       setOrders([]);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleVerifyPayment = async (orderId) => {
+    try {
+      setVerifyingId(orderId);
+      const resp = await axios.post('/api/payment/verify', { orderId });
+      if (resp.data && resp.data.status === 'PAID') {
+        alert('Payment verified! Escrow is locked.');
+      } else {
+        alert('Payment status: ' + (resp.data.status || 'Pending confirmation'));
+      }
+      fetchOrders();
+    } catch (err) {
+      alert(err.response?.data?.error || 'Verification failed');
+    } finally {
+      setVerifyingId(null);
     }
   };
 
@@ -109,6 +127,31 @@ const Orders = () => {
     );
   };
 
+  const getPaymentBadge = (order) => {
+    if (order.paymentMethod === 'cash') {
+      return (
+        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full font-label-sm text-xs font-medium bg-surface-container-high text-on-surface">
+          <span className="material-symbols-outlined text-[13px]">payments</span>
+          Cash on Meetup
+        </span>
+      );
+    }
+    if (order.paymentStatus === 'paid') {
+      return (
+        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full font-label-sm text-xs font-medium bg-tertiary-fixed text-on-tertiary-fixed">
+          <span className="material-symbols-outlined text-[13px]">check_circle</span>
+          Paid (Escrow Secured)
+        </span>
+      );
+    }
+    return (
+      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full font-label-sm text-xs font-medium bg-primary/10 text-primary">
+        <span className="material-symbols-outlined text-[13px]">pending</span>
+        Payment Pending
+      </span>
+    );
+  };
+
   if (loading) {
     return (
       <div className="max-w-[1360px] mx-auto px-4 py-16 text-center">
@@ -170,11 +213,12 @@ const Orders = () => {
                     <span className="material-symbols-outlined text-[20px]">package_2</span>
                   </div>
                   <div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <span className="font-label-lg text-on-surface font-bold">
                         Order #{order.id}
                       </span>
                       {getStatusBadge(order.status)}
+                      {getPaymentBadge(order)}
                     </div>
                     <p className="font-body-sm text-on-surface-variant text-xs mt-0.5">
                       Placed on {new Date(order.createdAt).toLocaleDateString()} at{' '}
@@ -233,14 +277,36 @@ const Orders = () => {
                   </span>
                 </div>
 
-                {canCancelOrder(order) && (
-                  <button
-                    onClick={() => handleCancelOrder(order.id)}
-                    className="px-3.5 py-1.5 rounded-lg border border-error/40 text-error hover:bg-error-container/20 font-label-sm transition-colors self-start sm:self-auto"
-                  >
-                    Cancel & Release Escrow
-                  </button>
-                )}
+                <div className="flex items-center gap-2 self-start sm:self-auto">
+                  {order.paymentMethod !== 'cash' && order.paymentStatus !== 'paid' && (
+                    <>
+                      <button
+                        onClick={() => handleVerifyPayment(order.id)}
+                        disabled={verifyingId === order.id}
+                        className="px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-sm font-semibold transition-all disabled:opacity-50"
+                      >
+                        {verifyingId === order.id ? 'Checking...' : 'Verify Payment'}
+                      </button>
+                      {order.paymentUrl && (
+                        <a
+                          href={order.paymentUrl}
+                          className="px-3 py-1.5 rounded-lg bg-secondary-fixed hover:bg-secondary text-on-secondary-fixed font-label-sm font-semibold transition-all"
+                        >
+                          Pay Now
+                        </a>
+                      )}
+                    </>
+                  )}
+
+                  {canCancelOrder(order) && (
+                    <button
+                      onClick={() => handleCancelOrder(order.id)}
+                      className="px-3.5 py-1.5 rounded-lg border border-error/40 text-error hover:bg-error-container/20 font-label-sm transition-colors"
+                    >
+                      Cancel & Release Escrow
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           ))}

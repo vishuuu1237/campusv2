@@ -13,9 +13,10 @@ const Checkout = () => {
     city: '',
     state: '',
     zip: '',
+    phone: '',
     campusLocation: 'Student Union / Central Library',
   });
-  const [paymentMethod, setPaymentMethod] = useState('cash');
+  const [paymentMethod, setPaymentMethod] = useState('upi');
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -53,11 +54,21 @@ const Checkout = () => {
         shippingAddress,
         paymentMethod,
       });
-      navigate(`/order-success/${response.data.id}`);
+
+      const orderData = response.data;
+
+      // If gateway returned a checkout payment URL, redirect user to pay
+      if (orderData.paymentUrl) {
+        window.location.href = orderData.paymentUrl;
+      } else {
+        navigate(`/order-success/${orderData.id}`);
+      }
     } catch (err) {
       console.error('Checkout error:', err);
-      setError(err.response?.data?.error || 'Failed to place escrow order. Please try again.');
-    } finally {
+      setError(
+        err.response?.data?.error ||
+        'Failed to initiate checkout. Please try again.'
+      );
       setSubmitting(false);
     }
   };
@@ -163,7 +174,7 @@ const Checkout = () => {
               />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="font-label-md text-on-surface font-semibold block mb-1">
                   City *
@@ -180,6 +191,24 @@ const Checkout = () => {
                 />
               </div>
 
+              <div>
+                <label className="font-label-md text-on-surface font-semibold block mb-1">
+                  Contact Mobile Number *
+                </label>
+                <input
+                  type="tel"
+                  required
+                  value={shippingAddress.phone}
+                  onChange={(e) =>
+                    setShippingAddress({ ...shippingAddress, phone: e.target.value })
+                  }
+                  placeholder="10-digit mobile number"
+                  className="w-full h-11 px-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface font-body-md focus:outline-none focus:ring-2 focus:ring-primary/20"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="font-label-md text-on-surface font-semibold block mb-1">
                   State *
@@ -207,7 +236,7 @@ const Checkout = () => {
                   onChange={(e) =>
                     setShippingAddress({ ...shippingAddress, zip: e.target.value })
                   }
-                  placeholder="ZIP"
+                  placeholder="ZIP / PIN Code"
                   className="w-full h-11 px-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface font-body-md focus:outline-none focus:ring-2 focus:ring-primary/20"
                 />
               </div>
@@ -217,11 +246,39 @@ const Checkout = () => {
           {/* Section 2: Payment Method */}
           <div className="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm border border-outline-variant/20 space-y-4">
             <div className="flex items-center gap-2 text-primary">
-              <span className="material-symbols-outlined text-[24px]">credit_card</span>
-              <h2 className="font-headline-sm text-on-surface">Escrow Payment Method</h2>
+              <span className="material-symbols-outlined text-[24px]">payments</span>
+              <h2 className="font-headline-sm text-on-surface">Payment & Escrow Method</h2>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label
+                onClick={() => setPaymentMethod('upi')}
+                className={`p-4 rounded-xl border cursor-pointer transition-all flex items-start gap-3 ${
+                  paymentMethod === 'upi' || paymentMethod === 'card'
+                    ? 'border-primary bg-primary/5 shadow-2xs'
+                    : 'border-outline-variant/30 bg-surface-container-lowest hover:bg-surface-container-low'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="payment"
+                  checked={paymentMethod === 'upi' || paymentMethod === 'card'}
+                  onChange={() => setPaymentMethod('upi')}
+                  className="mt-1 text-primary accent-primary"
+                />
+                <div>
+                  <p className="font-label-md text-on-surface font-semibold flex items-center gap-1.5">
+                    <span className="material-symbols-outlined text-[18px] text-primary">
+                      qr_code_2
+                    </span>
+                    <span>Instant UPI / Gateway Escrow</span>
+                  </p>
+                  <p className="font-body-sm text-on-surface-variant text-xs mt-1">
+                    Pay securely via UPI QR, GPay, PhonePe, Paytm, or NetBanking. Funds stay locked in escrow until verified.
+                  </p>
+                </div>
+              </label>
+
               <label
                 onClick={() => setPaymentMethod('cash')}
                 className={`p-4 rounded-xl border cursor-pointer transition-all flex items-start gap-3 ${
@@ -246,34 +303,6 @@ const Checkout = () => {
                   </p>
                   <p className="font-body-sm text-on-surface-variant text-xs mt-1">
                     Pay in person after physically inspecting the item at the verified meetup zone.
-                  </p>
-                </div>
-              </label>
-
-              <label
-                onClick={() => setPaymentMethod('card')}
-                className={`p-4 rounded-xl border cursor-pointer transition-all flex items-start gap-3 ${
-                  paymentMethod === 'card'
-                    ? 'border-primary bg-primary/5 shadow-2xs'
-                    : 'border-outline-variant/30 bg-surface-container-lowest hover:bg-surface-container-low'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="payment"
-                  checked={paymentMethod === 'card'}
-                  onChange={() => setPaymentMethod('card')}
-                  className="mt-1 text-primary accent-primary"
-                />
-                <div>
-                  <p className="font-label-md text-on-surface font-semibold flex items-center gap-1.5">
-                    <span className="material-symbols-outlined text-[18px] text-primary">
-                      credit_card
-                    </span>
-                    <span>Digital Escrow Holding</span>
-                  </p>
-                  <p className="font-body-sm text-on-surface-variant text-xs mt-1">
-                    Protected online transfer. Funds remain locked until you confirm acceptance.
                   </p>
                 </div>
               </label>
@@ -309,7 +338,7 @@ const Checkout = () => {
               <span className="text-tertiary-container font-semibold">Free (0%)</span>
             </div>
             <div className="flex justify-between">
-              <span>Local Tax</span>
+              <span>Gateway Handling</span>
               <span className="text-on-surface font-semibold">₹0.00</span>
             </div>
             <div className="border-t border-outline-variant/20 pt-2 flex justify-between font-headline-md text-on-surface font-bold text-lg">
@@ -323,8 +352,19 @@ const Checkout = () => {
             disabled={submitting}
             className="w-full h-12 bg-primary hover:bg-primary-container text-on-primary rounded-xl font-label-lg font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-2 disabled:opacity-50 active:scale-[0.99]"
           >
-            <span>{submitting ? 'Confirming Escrow...' : 'Place Escrow Order'}</span>
-            <span className="material-symbols-outlined text-[18px]">verified</span>
+            {submitting ? (
+              <>
+                <div className="w-5 h-5 border-2 border-on-primary border-t-transparent rounded-full animate-spin" />
+                <span>{paymentMethod === 'cash' ? 'Placing Order...' : 'Connecting to Gateway...'}</span>
+              </>
+            ) : (
+              <>
+                <span>{paymentMethod === 'cash' ? 'Place Escrow Order' : 'Proceed to Pay with Gateway'}</span>
+                <span className="material-symbols-outlined text-[18px]">
+                  {paymentMethod === 'cash' ? 'verified' : 'arrow_forward'}
+                </span>
+              </>
+            )}
           </button>
 
           <p className="font-body-sm text-on-surface-variant text-center text-xs">
