@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import TradeHubLogo from './TradeHubLogo';
+import RecampusLogo from './RecampusLogo';
 import axios from 'axios';
 
 const CATEGORIES = [
@@ -114,7 +114,7 @@ const Header = () => {
         <div className="h-16 max-w-[1360px] mx-auto px-4 md:px-margin flex items-center justify-between gap-space-md">
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0">
-            <TradeHubLogo className="h-8" />
+            <RecampusLogo className="h-8" />
           </Link>
 
           {/* Search Bar (Desktop) */}

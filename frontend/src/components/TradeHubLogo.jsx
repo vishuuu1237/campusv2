@@ -1,4 +1,4 @@
-const TradeHubLogo = ({ className = "h-8 w-auto", showText = true, textColor = "#1e1b4b" }) => {
+const RecampusLogo = ({ className = "h-8 w-auto", showText = true, textColor = "#1e1b4b" }) => {
   return (
     <div className={`flex items-center gap-2 select-none ${className}`}>
       <svg
@@ -22,11 +22,11 @@ const TradeHubLogo = ({ className = "h-8 w-auto", showText = true, textColor = "
           className="font-display-md text-2xl font-extrabold tracking-tight"
           style={{ color: textColor }}
         >
-          Trade<span className="text-primary-container">Hub</span>
+          Recampus<span className="text-primary-container">new</span>
         </span>
       )}
     </div>
   );
 };
 
-export default TradeHubLogo;
+export default RecampusLogo;

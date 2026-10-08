@@ -81,7 +81,7 @@ const Cart = () => {
         <div>
           <h1 className="font-headline-lg text-on-surface">Escrow Shopping Cart</h1>
           <p className="font-body-sm text-on-surface-variant">
-            Items are reserved and protected under TradeHub escrow checkout.
+            Items are reserved and protected under Recampus escrow checkout.
           </p>
         </div>
 

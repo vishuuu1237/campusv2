@@ -110,7 +110,7 @@ const Home = () => {
 
   return (
     <div className="w-full">
-      {/* Top TradeHub Guarantee Escrow Banner */}
+      {/* Top Recampus Guarantee Escrow Banner */}
       <section className="w-full bg-gradient-to-r from-primary via-primary-container to-surface-tint text-on-primary px-4 md:px-margin py-3 relative overflow-hidden shadow-sm">
         <div className="max-w-[1360px] mx-auto flex flex-wrap items-center justify-between gap-space-sm text-sm font-label-lg">
           <div className="flex items-center gap-space-sm">
@@ -120,7 +120,7 @@ const Home = () => {
               </span>
             </span>
             <span className="tracking-tight text-white font-headline-sm hidden sm:inline">
-              TradeHub Guarantee:
+              Recampus Guarantee:
             </span>
             <span className="text-surface-container-high font-body-md text-xs sm:text-sm">
               Local & Verified Peer-to-Peer Marketplace — 100% Escrow Buyer Protection on Every Order
@@ -427,7 +427,7 @@ const Home = () => {
               <span>Refresh Marketplace Listings</span>
             </button>
             <p className="font-body-sm text-on-surface-variant">
-              TradeHub Peer Exchange • Real-time verified campus inventory
+              Recampus Peer Exchange • Real-time verified campus inventory
             </p>
           </div>
         )}
@@ -444,7 +444,7 @@ const Home = () => {
               Built to replace shady parking lot meetups
             </h2>
             <p className="font-body-md text-on-surface-variant mt-1">
-              Every campus transaction is safeguarded by TradeHub's verified escrow protection before funds ever move.
+              Every campus transaction is safeguarded by Recampus's verified escrow protection before funds ever move.
             </p>
           </div>
 
@@ -506,7 +506,7 @@ const Home = () => {
                 <span className="material-symbols-outlined text-primary text-[24px]">
                   security
                 </span>
-                <h3 className="font-headline-md text-on-surface">TradeHub Escrow System</h3>
+                <h3 className="font-headline-md text-on-surface">Recampus Escrow System</h3>
               </div>
               <button
                 onClick={() => setShowEscrowModal(false)}
@@ -523,7 +523,7 @@ const Home = () => {
                 </span>
                 <div>
                   <strong className="text-on-surface block">Buyer Places Order</strong>
-                  Funds are safely locked into TradeHub digital escrow. The seller does not receive payment yet.
+                  Funds are safely locked into Recampus digital escrow. The seller does not receive payment yet.
                 </div>
               </div>
 

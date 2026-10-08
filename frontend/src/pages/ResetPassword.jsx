@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import TradeHubLogo from '../components/TradeHubLogo';
+import RecampusLogo from '../components/RecampusLogo';
 
 export default function ResetPassword() {
   const { token } = useParams();
@@ -35,11 +35,11 @@ export default function ResetPassword() {
       <div className="max-w-md w-full bg-surface-container-lowest rounded-2xl shadow-xl border border-outline-variant/30 p-8 space-y-6">
         <div className="text-center">
           <Link to="/" className="inline-block mb-4">
-            <TradeHubLogo className="h-8 mx-auto" />
+            <RecampusLogo className="h-8 mx-auto" />
           </Link>
           <h2 className="font-headline-md text-on-surface">Set New Password</h2>
           <p className="font-body-sm text-on-surface-variant mt-1">
-            Choose a strong new password for your TradeHub account.
+            Choose a strong new password for your Recampus account.
           </p>
         </div>
 

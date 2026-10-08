@@ -368,7 +368,7 @@ const Checkout = () => {
           </button>
 
           <p className="font-body-sm text-on-surface-variant text-center text-xs">
-            By placing this order, you agree to the TradeHub Peer Escrow Safety Guidelines.
+            By placing this order, you agree to the Recampus Peer Escrow Safety Guidelines.
           </p>
         </div>
       </form>

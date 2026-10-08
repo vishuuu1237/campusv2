@@ -17,7 +17,7 @@
 <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">swap_horiz</span>
 </div>
 <div class="flex flex-col">
-<span class="font-headline-md text-headline-md tracking-tight font-extrabold text-surface-container-lowest leading-none">TradeHub</span>
+<span class="font-headline-md text-headline-md tracking-tight font-extrabold text-surface-container-lowest leading-none">Recampus</span>
 <span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container/80 mt-1">Peer Marketplace</span>
 </div>
 </div>
@@ -184,13 +184,13 @@
 <label class="flex items-start gap-2 cursor-pointer select-none">
 <input class="w-4 h-4 mt-0.5 rounded text-primary accent-primary cursor-pointer" id="terms-chk" type="checkbox"/>
 <span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">
-                I agree to the <a class="text-primary hover:underline font-medium" href="#">TradeHub Rules of Conduct</a>, Escrow Protections, and <a class="text-primary hover:underline font-medium" href="#">Privacy Policy</a>.
+                I agree to the <a class="text-primary hover:underline font-medium" href="#">Recampus Rules of Conduct</a>, Escrow Protections, and <a class="text-primary hover:underline font-medium" href="#">Privacy Policy</a>.
               </span>
 </label>
 </div>
 <!-- Primary Submit CTA Button -->
 <button class="w-full h-12 bg-primary hover:bg-primary-container active:scale-[0.99] text-on-primary rounded-lg font-label-lg text-label-lg font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-space-sm mt-space-md" id="submit-cta-btn" type="submit">
-<span id="cta-button-text">Sign In to TradeHub</span>
+<span id="cta-button-text">Sign In to Recampus</span>
 <span class="material-symbols-outlined text-[18px]" id="cta-button-icon">arrow_forward</span>
 </button>
 </form>
@@ -257,7 +257,7 @@
       document.getElementById('signin-forgot-btn').classList.toggle('hidden', !isSignIn);
 
       // Button Label
-      document.getElementById('cta-button-text').innerText = isSignIn ? 'Sign In to TradeHub' : 'Create TradeHub Account';
+      document.getElementById('cta-button-text').innerText = isSignIn ? 'Sign In to Recampus' : 'Create Recampus Account';
       
       // Reset feedback
       const feedback = document.getElementById('auth-feedback-banner');
@@ -360,7 +360,7 @@
       setTimeout(() => {
         ctaBtn.disabled = false;
         ctaBtn.classList.remove('opacity-75');
-        document.getElementById('cta-button-text').innerText = authState.mode === 'signin' ? 'Sign In to TradeHub' : 'Create TradeHub Account';
+        document.getElementById('cta-button-text').innerText = authState.mode === 'signin' ? 'Sign In to Recampus' : 'Create Recampus Account';
 
         // Update Session context state
         authState.isAuthenticated = true;

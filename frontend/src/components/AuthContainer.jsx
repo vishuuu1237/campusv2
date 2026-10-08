@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import TradeHubLogo from './TradeHubLogo';
+import RecampusLogo from './RecampusLogo';
 
 const AuthContainer = ({ defaultMode = 'signin' }) => {
   const [mode, setMode] = useState(defaultMode); // 'signin' | 'register'
@@ -80,7 +80,7 @@ const AuthContainer = ({ defaultMode = 'signin' }) => {
       return;
     }
     if (!agreeTerms) {
-      setError('Please agree to the TradeHub Marketplace Terms');
+      setError('Please agree to the Recampus Marketplace Terms');
       return;
     }
 
@@ -104,7 +104,7 @@ const AuthContainer = ({ defaultMode = 'signin' }) => {
     <div className="w-full max-w-5xl mx-auto my-space-lg px-4">
       {/* Master Split Card */}
       <div className="w-full bg-surface-container-lowest rounded-2xl shadow-xl border border-outline-variant/30 overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[640px]">
-        {/* LEFT PANEL: TradeHub Value Proposition (5 Cols) */}
+        {/* LEFT PANEL: Recampus Value Proposition (5 Cols) */}
         <div className="lg:col-span-5 relative bg-gradient-to-br from-primary-container via-surface-tint to-primary text-on-primary p-space-xl flex flex-col justify-between overflow-hidden">
           {/* Decorative backdrop shapes */}
           <div className="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-white/10 blur-3xl pointer-events-none" />
@@ -113,7 +113,7 @@ const AuthContainer = ({ defaultMode = 'signin' }) => {
           {/* Top Branding */}
           <div className="relative z-10">
             <Link to="/" className="inline-block mb-space-lg">
-              <TradeHubLogo className="h-9" textColor="#ffffff" />
+              <RecampusLogo className="h-9" textColor="#ffffff" />
             </Link>
 
             <h1 className="font-headline-lg font-bold text-white leading-tight mb-space-xs">
@@ -376,7 +376,7 @@ const AuthContainer = ({ defaultMode = 'signin' }) => {
                   disabled={loading}
                   className="w-full h-12 bg-primary hover:bg-primary-container text-on-primary rounded-xl font-label-lg font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-4 disabled:opacity-50"
                 >
-                  <span>{loading ? 'Signing in...' : 'Sign In to TradeHub'}</span>
+                  <span>{loading ? 'Signing in...' : 'Sign In to Recampus'}</span>
                   <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </button>
               </form>
@@ -504,7 +504,7 @@ const AuthContainer = ({ defaultMode = 'signin' }) => {
                     className="mt-0.5 text-primary accent-primary"
                   />
                   <span>
-                    I agree to the TradeHub Code of Conduct, Campus Verification Standards, and Escrow Protections.
+                    I agree to the Recampus Code of Conduct, Campus Verification Standards, and Escrow Protections.
                   </span>
                 </label>
 

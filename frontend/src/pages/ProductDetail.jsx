@@ -195,7 +195,7 @@ const ProductDetail = () => {
                   </div>
                   <div className="min-w-0">
                     <p className="font-label-md text-on-surface font-semibold flex items-center gap-1.5">
-                      <span>TradeHub Authenticity Guarantee</span>
+                      <span>Recampus Authenticity Guarantee</span>
                       <span className="px-1.5 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[10px] uppercase font-bold">
                         Passed
                       </span>
@@ -251,7 +251,7 @@ const ProductDetail = () => {
 
                   <div className="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-2.5">
                     <h4 className="font-headline-sm text-on-surface text-base">
-                      TradeHub Included Safeguards:
+                      Recampus Included Safeguards:
                     </h4>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-on-surface font-body-sm">
                       <li className="flex items-center gap-2">
@@ -367,7 +367,7 @@ const ProductDetail = () => {
                 </div>
                 <div>
                   <h4 className="font-headline-sm text-on-surface text-base">
-                    TradeHub Zero-Risk Escrow
+                    Recampus Zero-Risk Escrow
                   </h4>
                   <p className="font-body-sm text-on-surface-variant">
                     Seller isn't paid until you receive the item and confirm condition.
@@ -419,7 +419,7 @@ const ProductDetail = () => {
                   <span className="material-symbols-outlined text-[16px] text-outline">
                     schedule
                   </span>
-                  <span>Listed on TradeHub Campus Exchange</span>
+                  <span>Listed on Recampus Campus Exchange</span>
                 </div>
               </div>
 

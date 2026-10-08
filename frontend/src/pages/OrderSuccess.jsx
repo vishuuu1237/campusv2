@@ -132,7 +132,7 @@ const OrderSuccess = () => {
           </h1>
           <p className="font-body-md text-on-surface-variant max-w-md mx-auto mt-1">
             {isPaid
-              ? 'Your funds are securely locked in TradeHub Escrow. The seller has been alerted to prepare the handoff.'
+              ? 'Your funds are securely locked in Recampus Escrow. The seller has been alerted to prepare the handoff.'
               : isCash
               ? 'Prepare exact cash for the meetup. Inspect the item thoroughly before handoff.'
               : 'Your payment session is pending confirmation. Once verified, escrow will be locked.'}

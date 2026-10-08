@@ -147,7 +147,7 @@ const SellProduct = () => {
           </div>
           <h1 className="font-headline-lg text-on-surface">Create a Verified Listing</h1>
           <p className="font-body-md text-on-surface-variant">
-            Reach fellow campus students locally or ship securely with TradeHub escrow protection.
+            Reach fellow campus students locally or ship securely with Recampus escrow protection.
           </p>
         </div>
 
@@ -594,7 +594,7 @@ const SellProduct = () => {
           <div className="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm border border-outline-variant/20 space-y-3">
             <div className="flex items-center gap-2 text-primary">
               <span className="material-symbols-outlined text-[22px]">shield</span>
-              <h3 className="font-headline-sm text-base">TradeHub Seller Safety</h3>
+              <h3 className="font-headline-sm text-base">Recampus Seller Safety</h3>
             </div>
             <p className="font-body-sm text-on-surface-variant">
               When a buyer purchases your item, the money is placed into secure escrow before you meet or ship. You are 100% protected against buyer chargebacks and fake payments.

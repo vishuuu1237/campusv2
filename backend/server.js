@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import compression from 'compression';
 import express from 'express';
 import cors from 'cors';
 import fs from 'fs/promises';
@@ -39,7 +40,8 @@ await initFile('orders.json', []);
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
+app.use(compression());
+app.use(express.static('public', { maxAge: '1d', immutable: true }));
 
 // Routes
 app.use('/api/auth', authRoutes);

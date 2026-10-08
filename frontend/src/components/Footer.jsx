@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import TradeHubLogo from './TradeHubLogo';
+import RecampusLogo from './RecampusLogo';
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Brand info */}
           <div className="lg:col-span-2 flex flex-col gap-space-sm pr-space-lg">
             <Link to="/" className="inline-block">
-              <TradeHubLogo className="h-8" />
+              <RecampusLogo className="h-8" />
             </Link>
             <p className="font-body-md text-on-surface-variant max-w-sm mt-1">
               The peer-to-peer campus commerce standard connecting verified students and trusted sellers with zero-friction escrow security and instant resolution.
@@ -89,7 +89,7 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="pt-space-md border-t border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-space-sm font-body-sm text-on-surface-variant">
-          <p>© {new Date().getFullYear()} TradeHub Peer Marketplace. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Recampus Peer Marketplace. All rights reserved.</p>
           <div className="flex items-center gap-space-md">
             <span className="hover:text-on-surface transition-colors cursor-pointer">Terms of Service</span>
             <span className="hover:text-on-surface transition-colors cursor-pointer">Privacy Policy</span>
