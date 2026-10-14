@@ -9,7 +9,7 @@
     "frontend"
   ],
   "scripts": {
-    "build": "npm run build --workspace=frontend",
+    "build": "npm run build --workspace=frontend && node scripts/copy-dist.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "npm run dev --workspace=backend",
     "client": "npm run dev --workspace=frontend",
