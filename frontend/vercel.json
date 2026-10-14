@@ -2,18 +2,22 @@
   "version": 2,
   "outputDirectory": "dist",
   "functions": {
-    "api/**/*.js": {
-      "includeFiles": "../backend/**"
+    "api/index.js": {
+      "includeFiles": "api/data/**"
     }
   },
   "rewrites": [
     {
+      "source": "/api/ping",
+      "destination": "/api/ping.js"
+    },
+    {
       "source": "/api",
-      "destination": "/api/index"
+      "destination": "/api/index.js"
     },
     {
       "source": "/api/(.*)",
-      "destination": "/api/index"
+      "destination": "/api/index.js"
     },
     {
       "source": "/(.*)",

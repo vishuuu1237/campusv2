@@ -5,18 +5,21 @@
   "outputDirectory": "dist",
   "functions": {
     "api/index.js": {
-      "runtime": "nodejs20.x",
-      "includeFiles": "{backend/**,api/data/**}"
+      "includeFiles": "api/data/**"
     }
   },
   "rewrites": [
     {
+      "source": "/api/ping",
+      "destination": "/api/ping.js"
+    },
+    {
       "source": "/api",
-      "destination": "/api/index"
+      "destination": "/api/index.js"
     },
     {
       "source": "/api/(.*)",
-      "destination": "/api/index"
+      "destination": "/api/index.js"
     },
     {
       "source": "/(.*)",
