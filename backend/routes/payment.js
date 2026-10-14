@@ -1,5 +1,6 @@
 import express from 'express';
 import fs from 'fs/promises';
+import { existsSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { verifyToken } from './auth.js';
@@ -8,7 +9,12 @@ import { createPaymentOrder, verifyPaymentStatus } from '../services/paymentServ
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const dataDir = path.join(__dirname, '../data');
+const getDataDir = () => {
+  const cwdData = path.join(process.cwd(), 'backend', 'data');
+  if (existsSync(cwdData)) return cwdData;
+  return path.join(__dirname, '../data');
+};
+const dataDir = getDataDir();
 
 const getOrders = async () => {
   const filePath = path.join(dataDir, 'orders.json');

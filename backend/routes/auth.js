@@ -5,12 +5,17 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import crypto from 'crypto';
-import { appendFileSync } from 'fs';
+import { appendFileSync, existsSync } from 'fs';
 
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const dataDir = path.join(__dirname, '../data');
+const getDataDir = () => {
+  const cwdData = path.join(process.cwd(), 'backend', 'data');
+  if (existsSync(cwdData)) return cwdData;
+  return path.join(__dirname, '../data');
+};
+const dataDir = getDataDir();
 const JWT_SECRET = process.env.JWT_SECRET || 'campus-marketplace-secret-key';
 
 let inMemoryUsers = [];

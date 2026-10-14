@@ -9,20 +9,29 @@ import { verifyToken } from './auth.js';
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const dataDir = path.join(__dirname, '../data');
-// Ensure uploads directory exists and configure multer
-const uploadsDir = path.join(__dirname, '..', 'public', 'uploads');
+
+const getDataDir = () => {
+  const cwdData = path.join(process.cwd(), 'backend', 'data');
+  if (fsSync.existsSync(cwdData)) return cwdData;
+  return path.join(__dirname, '../data');
+};
+const dataDir = getDataDir();
+
+const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+const uploadsDir = path.join(process.cwd(), 'backend', 'public', 'uploads');
 try { fsSync.mkdirSync(uploadsDir, { recursive: true }); } catch (e) { /* ignore */ }
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, uploadsDir);
-  },
-  filename: function (req, file, cb) {
-    const ext = path.extname(file.originalname);
-    cb(null, Date.now().toString() + ext);
-  }
-});
+const storage = isServerless
+  ? multer.memoryStorage()
+  : multer.diskStorage({
+      destination: function (req, file, cb) {
+        cb(null, uploadsDir);
+      },
+      filename: function (req, file, cb) {
+        const ext = path.extname(file.originalname);
+        cb(null, Date.now().toString() + ext);
+      }
+    });
 
 const upload = multer({
   storage,
@@ -197,7 +206,9 @@ router.post('/', verifyToken, upload.single('imageFile'), async (req, res) => {
 
     const products = await getProducts();
 
-    const imageUrl = req.file ? `/uploads/${req.file.filename}` : (image || 'https://via.placeholder.com/300');
+    const imageUrl = req.file
+      ? (req.file.filename ? `/uploads/${req.file.filename}` : `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`)
+      : (image || 'https://via.placeholder.com/300');
     const parsedPrice = parseFloat(price);
     const listingFee = calculateListingFee(parsedPrice);
 

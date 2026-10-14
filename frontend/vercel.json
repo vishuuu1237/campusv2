@@ -2,11 +2,15 @@
   "version": 2,
   "outputDirectory": "dist",
   "functions": {
-    "api/index.js": {
+    "api/**/*.js": {
       "includeFiles": "../backend/**"
     }
   },
   "rewrites": [
+    {
+      "source": "/api",
+      "destination": "/api/index"
+    },
     {
       "source": "/api/(.*)",
       "destination": "/api/index"

@@ -19,3 +19,15 @@ if (fs.existsSync(frontendDist) && fs.existsSync(path.join(frontendDist, 'index.
 } else {
   console.warn('Warning: No built index.html found in dist or frontend/dist');
 }
+
+// Sync uploads if present
+const uploadsDir = path.join(repoRoot, 'backend', 'public', 'uploads');
+if (fs.existsSync(uploadsDir)) {
+  const rootUploads = path.join(rootDist, 'uploads');
+  const frontendUploads = path.join(frontendDist, 'uploads');
+  fs.mkdirSync(rootUploads, { recursive: true });
+  fs.mkdirSync(frontendUploads, { recursive: true });
+  fs.cpSync(uploadsDir, rootUploads, { recursive: true });
+  fs.cpSync(uploadsDir, frontendUploads, { recursive: true });
+  console.log('✓ Successfully synced uploads to dist/uploads');
+}
