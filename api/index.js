@@ -39,14 +39,29 @@ const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-// Routes
+// Normalize URL for Vercel serverless function invocations
+app.use((req, res, next) => {
+  if (req.url.startsWith('/api/index')) {
+    req.url = req.url.replace(/^\/api\/index/, '') || '/';
+  }
+  next();
+});
+
+// Mount routes with /api prefix
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/payment', paymentRoutes);
 
-app.get('/api/health', (req, res) => {
+// Mount routes without /api prefix (if Vercel strips /api during routing)
+app.use('/auth', authRoutes);
+app.use('/products', productRoutes);
+app.use('/cart', cartRoutes);
+app.use('/orders', orderRoutes);
+app.use('/payment', paymentRoutes);
+
+app.get(['/api/health', '/health', '/api', '/'], (req, res) => {
   res.json({ status: 'ok', message: 'Recampus API is running' });
 });
 

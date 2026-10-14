@@ -13,16 +13,28 @@ const __dirname = path.dirname(__filename);
 const dataDir = path.join(__dirname, '../data');
 const JWT_SECRET = process.env.JWT_SECRET || 'campus-marketplace-secret-key';
 
+let inMemoryUsers = [];
+let inMemoryResets = [];
+
 // Helper to read/write users
 const getUsers = async () => {
   const filePath = path.join(dataDir, 'users.json');
-  const data = await fs.readFile(filePath, 'utf-8');
-  return JSON.parse(data);
+  try {
+    const data = await fs.readFile(filePath, 'utf-8');
+    const parsed = JSON.parse(data);
+    inMemoryUsers = parsed || [];
+    return inMemoryUsers;
+  } catch (err) {
+    return inMemoryUsers || [];
+  }
 };
 
 const saveUsers = async (users) => {
+  inMemoryUsers = users;
   const filePath = path.join(dataDir, 'users.json');
-  await fs.writeFile(filePath, JSON.stringify(users, null, 2));
+  try {
+    await fs.writeFile(filePath, JSON.stringify(users, null, 2));
+  } catch (err) {}
 };
 
 // Helpers for password reset tokens
@@ -30,15 +42,19 @@ const getResets = async () => {
   const filePath = path.join(dataDir, 'password_resets.json');
   try {
     const data = await fs.readFile(filePath, 'utf-8');
-    return JSON.parse(data || '[]');
+    inMemoryResets = JSON.parse(data || '[]');
+    return inMemoryResets;
   } catch (err) {
-    return [];
+    return inMemoryResets || [];
   }
 };
 
 const saveResets = async (resets) => {
+  inMemoryResets = resets;
   const filePath = path.join(dataDir, 'password_resets.json');
-  await fs.writeFile(filePath, JSON.stringify(resets, null, 2));
+  try {
+    await fs.writeFile(filePath, JSON.stringify(resets, null, 2));
+  } catch (err) {}
 };
 
 // Log password reset emails (for development) to backend/logs/password_reset_emails.log

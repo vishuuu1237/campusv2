@@ -9,15 +9,26 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const dataDir = path.join(__dirname, '../data');
 
+let inMemoryCarts = {};
+
 const getCarts = async () => {
   const filePath = path.join(dataDir, 'carts.json');
-  const data = await fs.readFile(filePath, 'utf-8');
-  return JSON.parse(data);
+  try {
+    const data = await fs.readFile(filePath, 'utf-8');
+    const parsed = JSON.parse(data);
+    inMemoryCarts = parsed || {};
+    return inMemoryCarts;
+  } catch (err) {
+    return inMemoryCarts || {};
+  }
 };
 
 const saveCarts = async (carts) => {
+  inMemoryCarts = carts;
   const filePath = path.join(dataDir, 'carts.json');
-  await fs.writeFile(filePath, JSON.stringify(carts, null, 2));
+  try {
+    await fs.writeFile(filePath, JSON.stringify(carts, null, 2));
+  } catch (err) {}
 };
 
 // Get user's cart
