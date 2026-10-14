@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1763318098698",
+    "name": "vishnu pund",
+    "email": "vpund2511@gmail.edu",
+    "password": "$2a$10$CXrPe9m8hnUoTdMLFGawUuEPnE1IpiJerTU8KZ72c7d9kqeb9sgVe",
+    "studentId": "12345678",
+    "createdAt": "2025-11-16T18:34:58.698Z"
+  },
+  {
+    "id": "1764486978859",
+    "name": "pranav kadu",
+    "email": "2vpund2511@gmail.edu",
+    "password": "$2a$10$gmwdQiMaNySWJKZN8fTKdOhISeUlq3DUsy13YGt16r3DMPawp2r1u",
+    "studentId": "12345678",
+    "createdAt": "2025-11-30T07:16:18.859Z"
+  },
+  {
+    "id": "1764670128037",
+    "name": "Kartik sampat kokate",
+    "email": "kartikkokate20@gmai1.edu",
+    "password": "$2a$10$QmG42Tjbp6sIi57upqY6IentcK8cXNj7jrev8lfHfcOSbyw4Pt3c.",
+    "studentId": "1234",
+    "createdAt": "2025-12-02T10:08:48.037Z"
+  },
+  {
+    "id": "1764670166109",
+    "name": "ATHARV SHANKAR DUMANE",
+    "email": "atharvdumane1@gmail.edu",
+    "password": "$2a$10$NJrLJz9Qg79/ymIG6YSV1OgeVb57goLz07byrm3gIB/FlU356FTT2",
+    "studentId": null,
+    "createdAt": "2025-12-02T10:09:26.109Z"
+  },
+  {
+    "id": "1765259719633",
+    "name": "Omkar malode",
+    "email": "omkar.malode_25uec@sanjivanicoe.edu",
+    "password": "$2a$10$n3qkMrgyW2IrnA1NCiCRJea6oUk3vkxR5LRuUltTZiuc8em8t2Iwm",
+    "studentId": "0125UECM1047",
+    "createdAt": "2025-12-09T05:55:19.633Z"
+  },
+  {
+    "id": "1787202147690",
+    "name": "Kartik sampat kokate",
+    "email": "kartikkokate20@gmail.edu",
+    "password": "$2a$10$/8XaKR0hIdPOrGRM6YK0zOsUvUQ5gjJCgW5CE.zqxfQN8GhDe9IZO",
+    "studentId": "1234",
+    "createdAt": "2026-08-20T05:02:27.690Z"
+  },
+  {
+    "id": "1790146849116",
+    "name": "Test Student",
+    "email": "teststudent@gmail.com",
+    "password": "$2a$10$F5cp5J9gTVTcznbM6yW27uSYGOtkrBWldqzkd8O5XcDEqBAeQHhNW",
+    "studentId": "STU999",
+    "createdAt": "2026-09-23T07:00:49.116Z"
+  },
+  {
+    "id": "1791353210797",
+    "name": "vishnu",
+    "email": "vpund2511@gmail.com",
+    "password": "$2a$10$tdNuFMF931nsPBwRkZ/eHuFB1avpURcWw1Dur.BWqkWfq3utoqWfS",
+    "studentId": null,
+    "createdAt": "2026-10-07T06:06:50.797Z"
+  }
+]
