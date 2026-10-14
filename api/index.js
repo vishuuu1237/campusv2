@@ -46,13 +46,4 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal Server Error', message: err.message });
 });
 
-export default function handler(req, res) {
-  try {
-    return app(req, res);
-  } catch (err) {
-    console.error('Fatal API Handler Error:', err);
-    if (!res.headersSent) {
-      res.status(500).json({ error: 'Internal Server Error', message: err.message });
-    }
-  }
-}
+export default app;

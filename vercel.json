@@ -4,7 +4,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "functions": {
-    "api/**/*.js": {
+    "api/index.js": {
       "runtime": "nodejs20.x",
       "includeFiles": "{backend/**,api/data/**}"
     }
