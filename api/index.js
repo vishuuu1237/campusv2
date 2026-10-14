@@ -1,11 +1,11 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import authRoutes from '../backend/routes/auth.js';
-import productRoutes from '../backend/routes/products.js';
-import cartRoutes from '../backend/routes/cart.js';
-import orderRoutes from '../backend/routes/orders.js';
-import paymentRoutes from '../backend/routes/payment.js';
+import authRoutes from './routes/auth.js';
+import productRoutes from './routes/products.js';
+import cartRoutes from './routes/cart.js';
+import orderRoutes from './routes/orders.js';
+import paymentRoutes from './routes/payment.js';
 
 const app = express();
 
