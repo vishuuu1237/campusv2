@@ -22,8 +22,9 @@ build/
 .DS_Store
 Thumbs.db
 
-# Data files (optional - remove if you want to track data)
+# Data files (seed products tracked, dynamic user data ignored)
 backend/data/*.json
+!backend/data/products.json
 !backend/data/.gitkeep
 
 # MongoDB related (no longer needed)
